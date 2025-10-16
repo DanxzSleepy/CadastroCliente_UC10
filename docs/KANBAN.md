@@ -2,15 +2,18 @@
 kanban-plugin: basic
 ---
 
-## Sprint 4 - Recursos Adicionais e Finalização (v2.1.0)
+## Novas Funcionalidades Solicitadas
 
 - [ ] Implementar sistema de login básico (mockado)
 - [ ] Adicionar modo escuro/claro
-
-
-## Backlog
-
 - [ ] Aprimorar interface com feedback visual
+
+
+## Concluído - v2.2.0
+
+- [x] Adição de campo obrigatório para seleção de país
+- [x] Implementação de seleção dinâmica de cidades baseada no país escolhido
+- [x] Base de dados com cidades de 5 países diferentes
 
 
 ## Concluído - v2.1.0
@@ -43,8 +46,8 @@ kanban-plugin: basic
 
 <!--
 
-- [ ] Backlog
-- [ ] Sprint 4 - Recursos Adicionais e Finalização (v2.1.0)
+- [ ] Novas Funcionalidades Solicitadas
+- [ ] Concluído - v2.2.0
 - [ ] Concluído - v2.1.0
 - [ ] Concluído - v2.0.0
 - [ ] Concluído - v1.1.0

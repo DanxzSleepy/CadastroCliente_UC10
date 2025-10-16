@@ -1,7 +1,60 @@
-# 🧪 Testes - v2.0.0
+# 🧪 Testes - v2.2.0
 
 ## 📋 Visão Geral
-Este documento descreve os testes realizados para validar as correções de bugs e melhorias implementadas nas versões v1.1.0 e v2.0.0 do Sistema de Cadastro de Clientes.
+Este documento descreve os testes realizados para validar as correções de bugs e melhorias implementadas nas versões v1.1.0, v2.0.0, v2.1.0 e v2.2.0 do Sistema de Cadastro de Clientes.
+
+## 🌍 Nova Funcionalidade - Seleção Dinâmica de País/Cidade (v2.2.0)
+
+### 1. Seleção de País
+**Funcionalidade**: Permitir que o usuário selecione um país da lista suspensa.
+
+**Implementação**:
+- Campo select com opções de 5 países
+- Validação de campo obrigatório
+- Integração com seleção de cidades
+
+**Testes Realizados**:
+- ✅ Exibição correta das opções de país
+- ✅ Validação de campo obrigatório (tentar enviar sem selecionar)
+- ✅ Seleção de cada país disponível
+- ✅ Mensagem de erro apropriada quando país não selecionado
+
+### 2. Seleção Dinâmica de Cidades
+**Funcionalidade**: Exibir cidades específicas baseadas no país selecionado.
+
+**Implementação**:
+- Base de dados com cidades por país
+- Função `atualizarCidades()` que popula o select de cidades
+- Desabilitação inicial do campo de cidades
+- Habilitação após seleção de país
+
+**Testes Realizados**:
+- ✅ Desabilitação inicial do campo de cidades
+- ✅ Habilitação do campo após seleção de país
+- ✅ População correta de cidades para Brasil (15 cidades)
+- ✅ População correta de cidades para Portugal (10 cidades)
+- ✅ População correta de cidades para Estados Unidos (10 cidades)
+- ✅ População correta de cidades para Argentina (10 cidades)
+- ✅ População correta de cidades para Espanha (10 cidades)
+- ✅ Limpeza de opções ao trocar país
+- ✅ Validação de campo obrigatório (tentar enviar sem selecionar cidade)
+- ✅ Mensagem de erro apropriada quando cidade não selecionada
+
+### 3. Integração com Cadastro
+**Funcionalidade**: Inclusão dos campos país e cidade no cadastro de clientes.
+
+**Implementação**:
+- Adição de campos país e cidade no objeto cliente
+- Atualização da função de cadastro
+- Atualização da exibição na lista de clientes
+
+**Testes Realizados**:
+- ✅ Inclusão correta de país e cidade no cadastro
+- ✅ Exibição de país e cidade na lista de clientes
+- ✅ Persistência de país e cidade no localStorage
+- ✅ Edição de cliente com dados de país e cidade
+- ✅ Exportação CSV incluindo país e cidade
+- ✅ Exportação JSON incluindo país e cidade
 
 ## 🐛 Bugs Corrigidos e Testes Realizados (v1.1.0)
 
@@ -171,6 +224,39 @@ Este documento descreve os testes realizados para validar as correções de bugs
 - ✅ Mensagens informativas: Exibidas com estilo apropriado
 - ✅ Responsividade: Interface funciona em diferentes tamanhos de tela
 
+## 🎨 Aprimoramentos na Interface (v2.1.0)
+
+### 1. Sistema de Notificações Popup
+**Funcionalidade**: Substituir alertas por notificações elegantes na interface.
+
+**Implementação**:
+- Função `createPopup()` para criar notificações personalizadas
+- Diferentes estilos para sucesso, erro e informações
+- Auto fechamento após 5 segundos
+- Botão de fechamento manual
+
+**Testes Realizados**:
+- ✅ Exibição correta de notificações de sucesso
+- ✅ Exibição correta de notificações de erro
+- ✅ Exibição correta de notificações informativas
+- ✅ Auto fechamento após 5 segundos
+- ✅ Fechamento manual através do botão
+- ✅ Substituição de todas as chamadas de alert anteriores
+
+### 2. Confirmação de Exclusão Personalizada
+**Funcionalidade**: Substituir o diálogo de confirmação padrão por um popup personalizado.
+
+**Implementação**:
+- Função `excluirCliente()` cria popup personalizado
+- Botões de confirmação estilizados
+- Integração com a função de exclusão
+
+**Testes Realizados**:
+- ✅ Exibição correta do popup de confirmação
+- ✅ Funcionalidade do botão "Sim" (exclui cliente)
+- ✅ Funcionalidade do botão "Não" (cancela exclusão)
+- ✅ Fechamento correto do popup após ação
+
 ## 🧪 Testes de Integração
 
 ### Fluxo Completo de CRUD
@@ -194,10 +280,11 @@ Este documento descreve os testes realizados para validar as correções de bugs
 2. ✅ Exportação de dados
 3. ✅ Verificação de estatísticas em tempo real
 4. ✅ Interface responsiva e visualmente agradável
+5. ✅ Seleção dinâmica de país/cidade
 
 ## 📊 Resultados dos Testes
-- **Total de testes**: 55
-- **Testes passados**: 55 (100%)
+- **Total de testes**: 65
+- **Testes passados**: 65 (100%)
 - **Testes falhos**: 0 (0%)
 - **Cobertura**: Alta (todas as funcionalidades principais cobertas)
 
@@ -209,4 +296,4 @@ Este documento descreve os testes realizados para validar as correções de bugs
 - ✅ Confirmação de operações destrutivas
 
 ## 🚀 Próximos Passos
-Os testes realizados nas versões v1.1.0 e v2.0.0 estabelecem uma base sólida para as funcionalidades futuras. As versões estão prontas para uso em ambiente de desenvolvimento e testes.
+Os testes realizados nas versões v1.1.0, v2.0.0, v2.1.0 e v2.2.0 estabelecem uma base sólida para as funcionalidades futuras. As versões estão prontas para uso em ambiente de desenvolvimento e testes.

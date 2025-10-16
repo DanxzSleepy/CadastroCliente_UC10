@@ -1,6 +1,58 @@
 let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
 let nextId = clientes.length > 0 ? Math.max(...clientes.map(c => c.id)) + 1 : 1;
 
+// Database of cities by country
+const cidadesPorPais = {
+    "Brasil": [
+        "São Paulo", "Rio de Janeiro", "Brasília", "Salvador", "Fortaleza", 
+        "Belo Horizonte", "Manaus", "Curitiba", "Recife", "Porto Alegre",
+        "Belém", "Goiânia", "Guarulhos", "Campinas", "São Luís"
+    ],
+    "Portugal": [
+        "Lisboa", "Porto", "Braga", "Coimbra", "Faro", 
+        "Aveiro", "Leiria", "Viseu", "Setúbal", "Viana do Castelo"
+    ],
+    "Estados Unidos": [
+        "Nova York", "Los Angeles", "Chicago", "Houston", "Phoenix", 
+        "Filadélfia", "San Antonio", "San Diego", "Dallas", "San Jose"
+    ],
+    "Argentina": [
+        "Buenos Aires", "Córdoba", "Rosário", "Mendoza", "La Plata", 
+        "Tucumán", "Mar del Plata", "Salta", "Santa Fe", "San Juan"
+    ],
+    "Espanha": [
+        "Madri", "Barcelona", "Valência", "Sevilha", "Zaragoza", 
+        "Málaga", "Murcia", "Palma de Mallorca", "Las Palmas", "Bilbao"
+    ]
+};
+
+// Function to populate cities based on selected country
+function atualizarCidades() {
+    const paisSelect = document.getElementById('pais');
+    const cidadeSelect = document.getElementById('cidade');
+    const paisSelecionado = paisSelect.value;
+    
+    // Clear current options
+    cidadeSelect.innerHTML = '<option value="">Selecione uma cidade</option>';
+    
+    if (paisSelecionado && cidadesPorPais[paisSelecionado]) {
+        // Enable city select
+        cidadeSelect.disabled = false;
+        
+        // Add cities for selected country
+        cidadesPorPais[paisSelecionado].forEach(cidade => {
+            const option = document.createElement('option');
+            option.value = cidade;
+            option.textContent = cidade;
+            cidadeSelect.appendChild(option);
+        });
+    } else {
+        // Disable city select if no country selected
+        cidadeSelect.disabled = true;
+        cidadeSelect.innerHTML = '<option value="">Selecione primeiro um país</option>';
+    }
+}
+
 // Function to create popup notification
 function createPopup(message, type) {
     // Remove any existing popups
@@ -128,7 +180,8 @@ function atualizarListaClientes(lista = clientes) {
         div.innerHTML = `
             <strong>${cliente.nome}</strong> (${cliente.status === 'ativo' ? '✅ Ativo' : '❌ Inativo'})<br>
             📧 ${cliente.email} | 📞 ${cliente.telefone || 'Não informado'}<br>
-            🆔 CPF: ${cliente.cpf} | 🏙️ ${cliente.cidade || 'Não informada'}<br>
+            🌍 ${cliente.pais} | 🏙️ ${cliente.cidade}<br>
+            🆔 CPF: ${cliente.cpf}<br>
             <small>Cadastrado em: ${cliente.dataCadastro}</small>
             <button onclick="editarCliente(${cliente.id})" style="background: #ffc107; margin-top: 5px;">✏️ Editar</button>
             <button onclick="excluirCliente(${cliente.id})" style="background: #dc3545; margin-top: 5px;">🗑️ Excluir</button>
@@ -177,7 +230,15 @@ function editarCliente(id) {
         document.getElementById('email').value = cliente.email;
         document.getElementById('cpf').value = cliente.cpf;
         document.getElementById('telefone').value = cliente.telefone || '';
-        document.getElementById('cidade').value = cliente.cidade || '';
+        
+        // Set country and update cities
+        document.getElementById('pais').value = cliente.pais;
+        atualizarCidades();
+        // Set city after a small delay to ensure the options are populated
+        setTimeout(() => {
+            document.getElementById('cidade').value = cliente.cidade;
+        }, 100);
+        
         document.getElementById('status').value = cliente.status;
         createPopup('⚠️ Modo edição - Atualize os dados e clique em "Cadastrar Cliente"', 'info');
     }
@@ -232,6 +293,10 @@ function cancelDelete() {
 function limparFormulario() {
     document.getElementById('clientForm').reset();
     document.getElementById('clientId').value = '';
+    // Reset city select
+    const cidadeSelect = document.getElementById('cidade');
+    cidadeSelect.innerHTML = '<option value="">Selecione primeiro um país</option>';
+    cidadeSelect.disabled = true;
     // Clear any existing popup
     const popup = document.getElementById('popup-notification');
     if (popup) {
@@ -270,6 +335,9 @@ document.getElementById('telefone').addEventListener('input', function(e) {
     e.target.value = value;
 });
 
+// Add event listener for country selection
+document.getElementById('pais').addEventListener('change', atualizarCidades);
+
 // Handle form submission for both create and update
 document.getElementById('clientForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -279,11 +347,22 @@ document.getElementById('clientForm').addEventListener('submit', function(e) {
     const email = document.getElementById('email').value;
     const cpf = document.getElementById('cpf').value;
     const telefone = document.getElementById('telefone').value;
+    const pais = document.getElementById('pais').value;
     const cidade = document.getElementById('cidade').value;
     const status = document.getElementById('status').value;
 
     if (!nome) {
         createPopup('❌ Por favor, preencha o nome!', 'error');
+        return;
+    }
+
+    if (!pais) {
+        createPopup('❌ Por favor, selecione um país!', 'error');
+        return;
+    }
+
+    if (!cidade) {
+        createPopup('❌ Por favor, selecione uma cidade!', 'error');
         return;
     }
 
@@ -308,6 +387,7 @@ document.getElementById('clientForm').addEventListener('submit', function(e) {
         email: email,
         cpf: cpf,
         telefone: telefone,
+        pais: pais,
         cidade: cidade,
         status: status,
         dataCadastro: new Date().toLocaleDateString()
@@ -335,9 +415,9 @@ function exportarCSV() {
         return;
     }
     
-    let csv = 'ID,Nome,E-mail,CPF,Telefone,Cidade,Status,DataCadastro\n';
+    let csv = 'ID,Nome,E-mail,CPF,Telefone,País,Cidade,Status,DataCadastro\n';
     clientes.forEach(cliente => {
-        csv += `"${cliente.id}","${cliente.nome}","${cliente.email}","${cliente.cpf}","${cliente.telefone || ''}","${cliente.cidade || ''}","${cliente.status}","${cliente.dataCadastro}"\n`;
+        csv += `"${cliente.id}","${cliente.nome}","${cliente.email}","${cliente.cpf}","${cliente.telefone || ''}","${cliente.pais}","${cliente.cidade}","${cliente.status}","${cliente.dataCadastro}"\n`;
     });
     
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -363,7 +443,7 @@ function exportarJSON() {
         metadata: {
             totalClientes: clientes.length,
             dataExportacao: new Date().toISOString(),
-            versao: '2.0.0'
+            versao: '2.2.0'
         },
         clientes: clientes
     };

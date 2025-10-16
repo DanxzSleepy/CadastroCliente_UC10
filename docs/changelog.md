@@ -1,5 +1,17 @@
 # 📋 Changelog - Sistema de Cadastro de Clientes
 
+## [v2.2.0] - Adição da seleção dinâmica de país/cidade - 2025-10-16
+### 🌍 Novas funcionalidades
+- Adição de campo obrigatório para seleção de país
+- Implementação de seleção dinâmica de cidades baseada no país escolhido
+- Base de dados com cidades de 5 países diferentes (Brasil, Portugal, EUA, Argentina e Espanha)
+- Validação de campos país e cidade como obrigatórios
+
+### 🎨 Melhorias na interface
+- Atualização do formulário de cadastro com novos campos
+- Melhorias nos estilos CSS para os novos elementos
+- Mensagens de ajuda aprimoradas para os novos campos
+
 ## [v2.1.0] - Preparação final para apresentação - 2025-10-16
 ### 🎨 Aprimoramentos na interface
 - Implementação de sistema de notificações popup para melhor feedback ao usuário

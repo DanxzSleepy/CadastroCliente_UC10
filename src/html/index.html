@@ -38,8 +38,24 @@
             </div>
             
             <div class="form-group">
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade">
+                <label for="pais">País *</label>
+                <select id="pais" name="pais" required>
+                    <option value="">Selecione um país</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Espanha">Espanha</option>
+                </select>
+                <small>Selecione o país do cliente</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="cidade">Cidade *</label>
+                <select id="cidade" name="cidade" required disabled>
+                    <option value="">Selecione primeiro um país</option>
+                </select>
+                <small>Selecione a cidade do cliente</small>
             </div>
             
             <div class="form-group">

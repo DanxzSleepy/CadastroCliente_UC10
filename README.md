@@ -1,7 +1,7 @@
 # 📋 Sistema de Cadastro de Clientes
 
 ## 📖 Descrição
-Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e JavaScript puro. O sistema permite registrar informações básicas de clientes, como nome, e-mail, CPF, telefone, cidade e status, com funcionalidades avançadas de busca, filtragem e exportação.
+Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e JavaScript puro. O sistema permite registrar informações básicas de clientes, como nome, e-mail, CPF, telefone, país, cidade e status, com funcionalidades avançadas de busca, filtragem e exportação.
 
 ## ⚙️ Funcionalidades Atuais
 1. Cadastro de novos clientes com:
@@ -9,7 +9,8 @@ Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e
    - E-mail (validação completa)
    - CPF (validação completa com algoritmo oficial)
    - Telefone (opcional, com máscara automática)
-   - Cidade (opcional)
+   - País (seleção de lista suspensa)
+   - Cidade (seleção dinâmica baseada no país escolhido)
    - Status (ativo/inativo)
 2. Visualização da lista de clientes cadastrados
 3. Edição de clientes existentes (atualização real dos dados)
@@ -22,6 +23,7 @@ Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e
 10. Contador de clientes ativos/inativos com estatísticas em tempo real
 11. Interface aprimorada com feedback visual e indicadores de status
 12. Sistema de notificações popup para melhor experiência do usuário
+13. Seleção dinâmica de cidades baseada no país escolhido
 
 ## ▶️ Como Executar
 1. Baixe ou clone este repositório
@@ -42,6 +44,9 @@ Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e
 9. Exporte a lista de clientes para CSV e JSON
 10. Verifique as estatísticas de clientes ativos/inativos
 11. Teste as notificações popup e confirmações personalizadas
+12. Teste a seleção dinâmica de país/cidade:
+    - Selecione um país e verifique se as cidades são carregadas
+    - Tente enviar o formulário sem selecionar país ou cidade
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML5
@@ -73,6 +78,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE.md](LICENSE.md) p
 - **v1.1.0**: Correção de bugs e refatoração
 - **v2.0.0**: Implementação de novas funcionalidades
 - **v2.1.0**: Aprimoramentos finais e preparação para apresentação
+- **v2.2.0**: Adição da seleção dinâmica de país/cidade
 
 ## 📞 Desenvolvedor
 Desenvolvido por Danilo Ícaro Alves Santos como parte do currículo da disciplina de Tecnologia em Desenvolvimento de Sistemas.
