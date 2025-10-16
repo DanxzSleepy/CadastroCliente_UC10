@@ -1,7 +1,7 @@
 # 📋 Sistema de Cadastro de Clientes
 
 ## 📖 Descrição
-Este é um sistema simples de cadastro de clientes desenvolvido com HTML, CSS e JavaScript puro. O sistema permite registrar informações básicas de clientes, como nome, e-mail, CPF, telefone, cidade e status.
+Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e JavaScript puro. O sistema permite registrar informações básicas de clientes, como nome, e-mail, CPF, telefone, cidade e status, com funcionalidades avançadas de busca, filtragem e exportação.
 
 ## ⚙️ Funcionalidades Atuais
 1. Cadastro de novos clientes com:
@@ -13,7 +13,7 @@ Este é um sistema simples de cadastro de clientes desenvolvido com HTML, CSS e 
    - Status (ativo/inativo)
 2. Visualização da lista de clientes cadastrados
 3. Edição de clientes existentes (atualização real dos dados)
-4. Exclusão de clientes (com confirmação)
+4. Exclusão de clientes (com confirmação personalizada)
 5. Validações completas de campos obrigatórios
 6. Persistência de dados com localStorage
 7. Máscaras automáticas para CPF e telefone
@@ -21,6 +21,7 @@ Este é um sistema simples de cadastro de clientes desenvolvido com HTML, CSS e 
 9. Exportação de lista de clientes para formatos CSV e JSON
 10. Contador de clientes ativos/inativos com estatísticas em tempo real
 11. Interface aprimorada com feedback visual e indicadores de status
+12. Sistema de notificações popup para melhor experiência do usuário
 
 ## ▶️ Como Executar
 1. Baixe ou clone este repositório
@@ -40,6 +41,7 @@ Este é um sistema simples de cadastro de clientes desenvolvido com HTML, CSS e 
 8. Utilize a busca e filtros para encontrar clientes específicos
 9. Exporte a lista de clientes para CSV e JSON
 10. Verifique as estatísticas de clientes ativos/inativos
+11. Teste as notificações popup e confirmações personalizadas
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML5
@@ -58,10 +60,19 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE.md](LICENSE.md) p
 │   ├── html/              # Arquivo HTML separado
 │   ├── css/               # Arquivo CSS separado
 │   └── js/                # Arquivo JavaScript separado
-├── docs/                  # Documentação
+├── docs/                  # Documentação completa
 ├── README.md              # Este arquivo
 ├── CHANGELOG.md           # Histórico de versões
 ├── BACKLOG.md             # Lista de melhorias pendentes
 ├── LICENSE.md             # Licença do projeto
 └── .gitignore             # Arquivos ignorados pelo Git
 ```
+
+## 🎓 Versões Desenvolvidas
+- **v1.0.0**: Análise inicial e documentação base
+- **v1.1.0**: Correção de bugs e refatoração
+- **v2.0.0**: Implementação de novas funcionalidades
+- **v2.1.0**: Aprimoramentos finais e preparação para apresentação
+
+## 📞 Desenvolvedor
+Desenvolvido por Danilo Ícaro Alves Santos como parte do currículo da disciplina de Tecnologia em Desenvolvimento de Sistemas.

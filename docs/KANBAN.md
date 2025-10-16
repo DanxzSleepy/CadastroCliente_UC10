@@ -2,14 +2,7 @@
 kanban-plugin: basic
 ---
 
-## Sprint 1 - Correção de Bugs Críticos (v1.1.0)
-
-- [ ] Implementar sistema de login básico (mockado)
-- [ ] Adicionar modo escuro/claro
-- [ ] Aprimorar interface com feedback visual
-
-
-## Sprint 2 - Implementação de Novas Funcionalidades (v2.0.0)
+## Sprint 4 - Recursos Adicionais e Finalização (v2.1.0)
 
 - [ ] Implementar sistema de login básico (mockado)
 - [ ] Adicionar modo escuro/claro
@@ -18,6 +11,15 @@ kanban-plugin: basic
 ## Backlog
 
 - [ ] Aprimorar interface com feedback visual
+
+
+## Concluído - v2.1.0
+
+- [x] Implementação de sistema de notificações popup
+- [x] Criação de confirmação de exclusão personalizada
+- [x] Aprimoramento da experiência do usuário
+- [x] Criação de documentação final de apresentação
+- [x] Criação de guia para gravação de vídeos
 
 
 ## Concluído - v2.0.0
@@ -42,7 +44,8 @@ kanban-plugin: basic
 <!--
 
 - [ ] Backlog
-- [ ] Sprint 2 - Implementação de Novas Funcionalidades (v2.0.0)
+- [ ] Sprint 4 - Recursos Adicionais e Finalização (v2.1.0)
+- [ ] Concluído - v2.1.0
 - [ ] Concluído - v2.0.0
 - [ ] Concluído - v1.1.0
 

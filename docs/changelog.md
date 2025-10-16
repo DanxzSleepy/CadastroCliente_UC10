@@ -1,5 +1,17 @@
 # 📋 Changelog - Sistema de Cadastro de Clientes
 
+## [v2.1.0] - Preparação final para apresentação - 2025-10-16
+### 🎨 Aprimoramentos na interface
+- Implementação de sistema de notificações popup para melhor feedback ao usuário
+- Criação de confirmação de exclusão personalizada em popup
+- Aprimoramento da experiência do usuário com mensagens mais visuais
+- Remoção das notificações antigas baseadas em alert
+
+### 📋 Documentação final
+- Criação de documentação final de apresentação em `docs/APRESENTACAO.md`
+- Criação de guia para gravação de vídeos em `docs/VIDEO_GUIDE.md`
+- Atualização de todas as documentações existentes
+
 ## [v2.0.0] - Implementação de novas funcionalidades - 2025-10-16
 ### 🚀 Novas funcionalidades
 - Implementação de busca e filtro de clientes por nome, e-mail, CPF ou status

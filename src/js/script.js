@@ -1,6 +1,43 @@
 let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
 let nextId = clientes.length > 0 ? Math.max(...clientes.map(c => c.id)) + 1 : 1;
 
+// Function to create popup notification
+function createPopup(message, type) {
+    // Remove any existing popups
+    const existingPopup = document.getElementById('popup-notification');
+    if (existingPopup) {
+        existingPopup.remove();
+    }
+    
+    // Create popup element
+    const popup = document.createElement('div');
+    popup.id = 'popup-notification';
+    popup.className = `popup-notification ${type}`;
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="popup-message">${message}</span>
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+        </div>
+    `;
+    
+    // Add to document
+    document.body.appendChild(popup);
+    
+    // Auto close after 5 seconds
+    setTimeout(() => {
+        if (document.getElementById('popup-notification')) {
+            document.getElementById('popup-notification').remove();
+        }
+    }, 5000);
+}
+
+function closePopup() {
+    const popup = document.getElementById('popup-notification');
+    if (popup) {
+        popup.remove();
+    }
+}
+
 function validarCPF(cpf) {
     // Remove non-digit characters
     cpf = cpf.replace(/[^\d]/g, '');
@@ -142,7 +179,7 @@ function editarCliente(id) {
         document.getElementById('telefone').value = cliente.telefone || '';
         document.getElementById('cidade').value = cliente.cidade || '';
         document.getElementById('status').value = cliente.status;
-        showMessage('⚠️ Modo edição - Atualize os dados e clique em "Cadastrar Cliente"', 'info');
+        createPopup('⚠️ Modo edição - Atualize os dados e clique em "Cadastrar Cliente"', 'info');
     }
 }
 
@@ -153,31 +190,53 @@ function atualizarCliente(id, dados) {
         salvarClientes();
         atualizarListaClientes();
         limparFormulario();
-        showMessage('✅ Cliente atualizado com sucesso!', 'success');
+        createPopup('✅ Cliente atualizado com sucesso!', 'success');
     }
 }
 
 function excluirCliente(id) {
-    if (confirm('Tem certeza que deseja excluir este cliente?')) {
-        clientes = clientes.filter(cliente => cliente.id !== id);
-        salvarClientes();
-        showMessage('🗑️ Cliente excluído!', 'success');
-        atualizarListaClientes();
-    }
+    // Create custom confirmation popup
+    const popup = document.createElement('div');
+    popup.id = 'confirm-popup';
+    popup.className = 'confirm-popup';
+    popup.innerHTML = `
+        <div class="confirm-content">
+            <h3>Confirmação</h3>
+            <p>Tem certeza que deseja excluir este cliente?</p>
+            <div class="confirm-buttons">
+                <button onclick="confirmDelete(${id})" class="btn-confirm">Sim</button>
+                <button onclick="cancelDelete()" class="btn-cancel">Não</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(popup);
+}
+
+function confirmDelete(id) {
+    // Remove confirmation popup
+    document.getElementById('confirm-popup').remove();
+    
+    // Delete client
+    clientes = clientes.filter(cliente => cliente.id !== id);
+    salvarClientes();
+    createPopup('🗑️ Cliente excluído!', 'success');
+    atualizarListaClientes();
+}
+
+function cancelDelete() {
+    // Remove confirmation popup
+    document.getElementById('confirm-popup').remove();
 }
 
 function limparFormulario() {
     document.getElementById('clientForm').reset();
     document.getElementById('clientId').value = '';
-    document.getElementById('message').innerHTML = '';
-}
-
-function showMessage(text, type) {
-    const messageDiv = document.getElementById('message');
-    messageDiv.innerHTML = `<div class="${type}">${text}</div>`;
-    setTimeout(() => {
-        messageDiv.innerHTML = '';
-    }, 5000);
+    // Clear any existing popup
+    const popup = document.getElementById('popup-notification');
+    if (popup) {
+        popup.remove();
+    }
 }
 
 // Add input masks
@@ -224,23 +283,23 @@ document.getElementById('clientForm').addEventListener('submit', function(e) {
     const status = document.getElementById('status').value;
 
     if (!nome) {
-        showMessage('❌ Por favor, preencha o nome!', 'error');
+        createPopup('❌ Por favor, preencha o nome!', 'error');
         return;
     }
 
     if (!validarEmail(email)) {
-        showMessage('❌ E-mail inválido!', 'error');
+        createPopup('❌ E-mail inválido!', 'error');
         return;
     }
 
     if (!validarCPF(cpf)) {
-        showMessage('❌ CPF inválido!', 'error');
+        createPopup('❌ CPF inválido!', 'error');
         return;
     }
 
     // Check for duplicates only when creating new client
     if (!id && verificarClienteExistente(email, cpf)) {
-        showMessage('❌ Cliente já cadastrado!', 'error');
+        createPopup('❌ Cliente já cadastrado!', 'error');
         return;
     }
 
@@ -262,7 +321,7 @@ document.getElementById('clientForm').addEventListener('submit', function(e) {
         cliente.id = nextId++;
         clientes.push(cliente);
         salvarClientes();
-        showMessage('✅ Cliente cadastrado com sucesso!', 'success');
+        createPopup('✅ Cliente cadastrado com sucesso!', 'success');
         limparFormulario();
     }
     
@@ -272,7 +331,7 @@ document.getElementById('clientForm').addEventListener('submit', function(e) {
 // Export functions
 function exportarCSV() {
     if (clientes.length === 0) {
-        showMessage('❌ Nenhum cliente para exportar!', 'error');
+        createPopup('❌ Nenhum cliente para exportar!', 'error');
         return;
     }
     
@@ -291,12 +350,12 @@ function exportarCSV() {
     link.click();
     document.body.removeChild(link);
     
-    showMessage('✅ Lista de clientes exportada com sucesso!', 'success');
+    createPopup('✅ Lista de clientes exportada com sucesso!', 'success');
 }
 
 function exportarJSON() {
     if (clientes.length === 0) {
-        showMessage('❌ Nenhum cliente para exportar!', 'error');
+        createPopup('❌ Nenhum cliente para exportar!', 'error');
         return;
     }
     
@@ -319,7 +378,7 @@ function exportarJSON() {
     link.click();
     document.body.removeChild(link);
     
-    showMessage('✅ Lista de clientes exportada com sucesso!', 'success');
+    createPopup('✅ Lista de clientes exportada com sucesso!', 'success');
 }
 
 // Initialize the client list and statistics
