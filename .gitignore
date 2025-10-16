@@ -1,0 +1,10 @@
+# .gitignore
+.obsidian/
+.DS_Store
+Thumbs.db
+Contexto_Total/
+*.log
+node_modules/
+__pycache__/
+*.tmp
+*.bak
