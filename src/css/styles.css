@@ -39,10 +39,37 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
+    margin-top: 5px;
 }
 
 button:hover {
     background: #0056b3;
+}
+
+.search-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: #e9ecef;
+    border-radius: 4px;
+}
+
+.search-section input {
+    width: 60%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.search-section button {
+    width: auto;
+    display: inline-block;
+}
+
+.stats-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: #d4edda;
+    border-radius: 4px;
+    text-align: center;
 }
 
 .client-list {
@@ -59,6 +86,23 @@ button:hover {
     background: #f9f9f9;
 }
 
+.client-item.ativo {
+    border-left: 5px solid #28a745;
+}
+
+.client-item.inativo {
+    border-left: 5px solid #dc3545;
+}
+
+.export-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.export-section button {
+    background: #28a745;
+}
+
 .success {
     color: green;
     padding: 10px;
@@ -71,6 +115,14 @@ button:hover {
     color: red;
     padding: 10px;
     background: #f8d7da;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.info {
+    color: #0c5460;
+    padding: 10px;
+    background: #d1ecf1;
     border-radius: 4px;
     margin: 10px 0;
 }

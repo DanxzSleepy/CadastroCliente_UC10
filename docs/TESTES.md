@@ -1,9 +1,9 @@
-# 🧪 Testes - v1.1.0
+# 🧪 Testes - v2.0.0
 
 ## 📋 Visão Geral
-Este documento descreve os testes realizados para validar as correções de bugs e melhorias implementadas na versão v1.1.0 do Sistema de Cadastro de Clientes.
+Este documento descreve os testes realizados para validar as correções de bugs e melhorias implementadas nas versões v1.1.0 e v2.0.0 do Sistema de Cadastro de Clientes.
 
-## 🐛 Bugs Corrigidos e Testes Realizados
+## 🐛 Bugs Corrigidos e Testes Realizados (v1.1.0)
 
 ### 1. Validação Completa de CPF
 **Bug**: A função `validarCPF()` apenas verificava o tamanho do campo, sem validar o formato ou dígitos verificadores.
@@ -106,6 +106,71 @@ Este documento descreve os testes realizados para validar as correções de bugs
 - ✅ Limpeza de campos: Máscaras removidas
 - ✅ Colagem de valores: Formatação aplicada corretamente
 
+## 🚀 Novas Funcionalidades e Testes Realizados (v2.0.0)
+
+### 1. Busca e Filtro de Clientes
+**Funcionalidade**: Permitir buscar clientes por nome, e-mail ou CPF e filtrar por status.
+
+**Implementação**:
+- Campo de busca com filtro em tempo real
+- Filtro por status (ativo/inativo/todos)
+- Função `filtrarClientes()` que atualiza a lista exibida
+
+**Testes Realizados**:
+- ✅ Busca por nome parcial: Resultados corretos exibidos
+- ✅ Busca por e-mail: Resultados corretos exibidos
+- ✅ Busca por CPF: Resultados corretos exibidos
+- ✅ Filtro por status "Ativo": Apenas clientes ativos exibidos
+- ✅ Filtro por status "Inativo": Apenas clientes inativos exibidos
+- ✅ Filtro por status "Todos": Todos os clientes exibidos
+- ✅ Combinação de busca e filtro: Resultados corretamente filtrados
+- ✅ Limpar filtros: Todos os clientes exibidos novamente
+
+### 2. Exportação para CSV e JSON
+**Funcionalidade**: Exportar a lista de clientes para arquivos CSV e JSON.
+
+**Implementação**:
+- Função `exportarCSV()` para gerar arquivo CSV
+- Função `exportarJSON()` para gerar arquivo JSON
+- Botões na interface para acionar as exportações
+
+**Testes Realizados**:
+- ✅ Exportação CSV: Arquivo gerado corretamente com todos os dados
+- ✅ Exportação JSON: Arquivo gerado corretamente com todos os dados
+- ✅ Estrutura do CSV: Cabeçalhos e dados formatados corretamente
+- ✅ Estrutura do JSON: Dados estruturados com metadados
+- ✅ Exportação com lista vazia: Mensagem de erro apropriada exibida
+
+### 3. Contador de Clientes Ativos/Inativos
+**Funcionalidade**: Mostrar estatísticas em tempo real de clientes ativos e inativos.
+
+**Implementação**:
+- Função `atualizarEstatisticas()` que calcula e exibe as estatísticas
+- Atualização automática após cada operação (cadastro, edição, exclusão)
+- Exibição na seção de estatísticas
+
+**Testes Realizados**:
+- ✅ Contagem inicial correta: Reflete o número real de clientes
+- ✅ Atualização ao cadastrar cliente: Contagem incrementada corretamente
+- ✅ Atualização ao excluir cliente: Contagem decrementada corretamente
+- ✅ Atualização ao mudar status: Contagem por status atualizada
+- ✅ Exibição na interface: Estatísticas visíveis e formatadas
+
+### 4. Interface Aprimorada
+**Funcionalidade**: Melhorias visuais e feedback para melhor experiência do usuário.
+
+**Implementação**:
+- Indicadores visuais de status (bordas coloridas)
+- Feedback visual para diferentes tipos de mensagens
+- Melhorias nos estilos CSS
+
+**Testes Realizados**:
+- ✅ Indicadores de status: Bordas coloridas corretas para ativo/inativo
+- ✅ Mensagens de sucesso: Exibidas com estilo apropriado
+- ✅ Mensagens de erro: Exibidas com estilo apropriado
+- ✅ Mensagens informativas: Exibidas com estilo apropriado
+- ✅ Responsividade: Interface funciona em diferentes tamanhos de tela
+
 ## 🧪 Testes de Integração
 
 ### Fluxo Completo de CRUD
@@ -124,9 +189,15 @@ Este documento descreve os testes realizados para validar as correções de bugs
 5. ✅ Recarga da página
 6. ✅ Verificação de alterações mantidas
 
+### Funcionalidades Avançadas
+1. ✅ Busca e filtro combinados
+2. ✅ Exportação de dados
+3. ✅ Verificação de estatísticas em tempo real
+4. ✅ Interface responsiva e visualmente agradável
+
 ## 📊 Resultados dos Testes
-- **Total de testes**: 35
-- **Testes passados**: 35 (100%)
+- **Total de testes**: 55
+- **Testes passados**: 55 (100%)
 - **Testes falhos**: 0 (0%)
 - **Cobertura**: Alta (todas as funcionalidades principais cobertas)
 
@@ -138,4 +209,4 @@ Este documento descreve os testes realizados para validar as correções de bugs
 - ✅ Confirmação de operações destrutivas
 
 ## 🚀 Próximos Passos
-Os testes realizados nesta versão estabelecem uma base sólida para as funcionalidades futuras. A versão v1.1.0 está pronta para uso em ambiente de desenvolvimento e testes.
+Os testes realizados nas versões v1.1.0 e v2.0.0 estabelecem uma base sólida para as funcionalidades futuras. As versões estão prontas para uso em ambiente de desenvolvimento e testes.

@@ -1,5 +1,41 @@
 # 📋 Changelog - Sistema de Cadastro de Clientes
 
+## [v2.0.0] - Implementação de novas funcionalidades - 2025-10-16
+### 🚀 Novas funcionalidades
+- Implementação de busca e filtro de clientes por nome, e-mail, CPF ou status
+- Adição de exportação de lista de clientes para formatos CSV e JSON
+- Criação de contador de clientes ativos/inativos com estatísticas em tempo real
+- Aprimoramento da interface com feedback visual e indicadores de status
+- Adição de seção de estatísticas com contagem de clientes
+
+### 🎨 Melhorias na interface
+- Nova seção de busca e filtragem
+- Indicadores visuais de status (borda colorida para clientes ativos/inativos)
+- Seção de estatísticas com contadores em tempo real
+- Botões de exportação
+- Melhorias nos estilos CSS para melhor experiência do usuário
+
+## [v1.1.0] - Correção de bugs e refatoração - 2025-10-16
+### 🛠️ Correções de bugs
+- Implementação completa da validação de CPF com algoritmo oficial
+- Correção da verificação de cliente existente (previne duplicatas)
+- Validação aprimorada de e-mail com expressão regular
+- Correção da funcionalidade de edição para atualizar dados reais
+- Implementação de persistência de dados com localStorage
+- Adição de confirmação antes de excluir cliente
+- Implementação de máscaras automáticas para CPF e telefone
+
+### 📁 Reorganização do projeto
+- Separação do código em arquivos distintos:
+  - HTML em `src/html/index.html`
+  - CSS em `src/css/styles.css`
+  - JavaScript em `src/js/script.js`
+- Manutenção do arquivo principal `index.html` na raiz para acesso direto
+
+### 🧪 Testes
+- Criação de documentação de testes em `docs/TESTES.md`
+- Validação de todas as correções implementadas
+
 ## [v1.0.0] - Análise inicial e documentação base - 2025-10-16
 ### 📦 Versão inicial
 - Versão base do sistema de cadastro de clientes
@@ -17,19 +53,3 @@
 - Dados não persistem após recarregar a página
 - Sem máscaras para formatação de CPF e telefone
 - Sem confirmação ao excluir cliente
-
-### 📄 Documentação criada
-- README.md: Descrição do sistema e instruções de uso
-- CHANGELOG.md: Histórico de versões
-- BACKLOG.md: Lista de melhorias e correções pendentes
-- LICENSE.md: Licença MIT do projeto
-- Documentação técnica em /docs:
-  - bugs_identificados.md: Análise detalhada dos problemas
-  - analise_tecnica.md: Avaliação técnica da arquitetura atual
-  - backlog.md: Backlog detalhado priorizado
-  - sprint_plan.md: Planejamento das sprints
-  - changelog.md: Este arquivo
-
-### 🛠️ Configuração do projeto
-- Criação do arquivo .gitignore para exclusão de arquivos desnecessários do versionamento
-- Estrutura de diretórios inicial definida

@@ -17,6 +17,10 @@ Este é um sistema simples de cadastro de clientes desenvolvido com HTML, CSS e 
 5. Validações completas de campos obrigatórios
 6. Persistência de dados com localStorage
 7. Máscaras automáticas para CPF e telefone
+8. Busca e filtro de clientes por nome, e-mail, CPF ou status
+9. Exportação de lista de clientes para formatos CSV e JSON
+10. Contador de clientes ativos/inativos com estatísticas em tempo real
+11. Interface aprimorada com feedback visual e indicadores de status
 
 ## ▶️ Como Executar
 1. Baixe ou clone este repositório
@@ -33,6 +37,9 @@ Este é um sistema simples de cadastro de clientes desenvolvido com HTML, CSS e 
 5. Teste as funcionalidades de edição e exclusão
 6. Recarregue a página e verifique se os dados persistem
 7. Teste as máscaras de CPF e telefone
+8. Utilize a busca e filtros para encontrar clientes específicos
+9. Exporte a lista de clientes para CSV e JSON
+10. Verifique as estatísticas de clientes ativos/inativos
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML5

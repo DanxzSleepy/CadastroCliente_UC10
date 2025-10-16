@@ -59,11 +59,11 @@ Este projeto utilizará uma abordagem Scrum adaptada para desenvolvimento web, c
 **Duração**: 2 semanas
 **Objetivo**: Adicionar funcionalidades avançadas e diferenciais
 
-### Tarefas:
-1. Implementar busca e filtro de clientes
-2. Adicionar exportação para CSV/JSON
-3. Criar contador de clientes ativos/inativos
-4. Aprimorar interface com feedback visual avançado
+### Tarefas Concluídas:
+1. ✅ Implementar busca e filtro de clientes
+2. ✅ Adicionar exportação para CSV/JSON
+3. ✅ Criar contador de clientes ativos/inativos
+4. ✅ Aprimorar interface com feedback visual avançado
 
 ### Critérios de Aceitação:
 - Busca deve funcionar em tempo real
@@ -75,7 +75,7 @@ Este projeto utilizará uma abordagem Scrum adaptada para desenvolvimento web, c
 **Duração**: 1 semana
 **Objetivo**: Adicionar recursos diferenciais e preparar para apresentação
 
-### Tarefas:
+### Tarefas Planejadas:
 1. Implementar sistema de login básico (mockado)
 2. Adicionar modo escuro/claro
 3. Refatorar completamente o código

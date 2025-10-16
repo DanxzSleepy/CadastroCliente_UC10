@@ -56,9 +56,39 @@
             <button type="button" onclick="limparFormulario()">🧹 Limpar</button>
         </form>
         
+        <!-- Search and filter section -->
+        <div class="search-section">
+            <h2>🔍 Buscar Clientes</h2>
+            <div class="form-group">
+                <input type="text" id="searchInput" placeholder="Buscar por nome, e-mail ou CPF...">
+                <button type="button" onclick="filtrarClientes()">🔍 Buscar</button>
+                <button type="button" onclick="limparFiltro()">🔄 Limpar</button>
+            </div>
+            <div class="form-group">
+                <label for="filterStatus">Filtrar por status:</label>
+                <select id="filterStatus" onchange="filtrarClientes()">
+                    <option value="todos">Todos</option>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Client statistics -->
+        <div class="stats-section">
+            <h3>📊 Estatísticas</h3>
+            <div id="clientStats"></div>
+        </div>
+        
         <div class="client-list">
-            <h2>📊 Clientes Cadastrados</h2>
+            <h2>👥 Clientes Cadastrados</h2>
             <div id="clientesCadastrados"></div>
+        </div>
+        
+        <!-- Export buttons -->
+        <div class="export-section">
+            <button type="button" onclick="exportarCSV()">📁 Exportar CSV</button>
+            <button type="button" onclick="exportarJSON()">📦 Exportar JSON</button>
         </div>
     </div>
 

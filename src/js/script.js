@@ -63,68 +63,33 @@ function salvarClientes() {
     localStorage.setItem('clientes', JSON.stringify(clientes));
 }
 
-document.getElementById('clientForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+function atualizarEstatisticas() {
+    const ativos = clientes.filter(cliente => cliente.status === 'ativo').length;
+    const inativos = clientes.filter(cliente => cliente.status === 'inativo').length;
+    const total = clientes.length;
     
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const cpf = document.getElementById('cpf').value;
-    const telefone = document.getElementById('telefone').value;
-    const cidade = document.getElementById('cidade').value;
-    const status = document.getElementById('status').value;
+    const statsDiv = document.getElementById('clientStats');
+    statsDiv.innerHTML = `
+        <p><strong>Total:</strong> ${total} clientes | 
+        <strong>Ativos:</strong> ${ativos} | 
+        <strong>Inativos:</strong> ${inativos}</p>
+    `;
+}
 
-    if (!nome) {
-        showMessage('❌ Por favor, preencha o nome!', 'error');
-        return;
-    }
-
-    if (!validarEmail(email)) {
-        showMessage('❌ E-mail inválido!', 'error');
-        return;
-    }
-
-    if (!validarCPF(cpf)) {
-        showMessage('❌ CPF inválido!', 'error');
-        return;
-    }
-
-    if (verificarClienteExistente(email, cpf)) {
-        showMessage('❌ Cliente já cadastrado!', 'error');
-        return;
-    }
-
-    const cliente = {
-        id: nextId++,
-        nome: nome,
-        email: email,
-        cpf: cpf,
-        telefone: telefone,
-        cidade: cidade,
-        status: status,
-        dataCadastro: new Date().toLocaleDateString()
-    };
-
-    clientes.push(cliente);
-    salvarClientes();
-    showMessage('✅ Cliente cadastrado com sucesso!', 'success');
-    atualizarListaClientes();
-    limparFormulario();
-});
-
-function atualizarListaClientes() {
+function atualizarListaClientes(lista = clientes) {
     const container = document.getElementById('clientesCadastrados');
     container.innerHTML = '';
 
-    if (clientes.length === 0) {
-        container.innerHTML = '<p>Nenhum cliente cadastrado ainda.</p>';
+    if (lista.length === 0) {
+        container.innerHTML = '<p>Nenhum cliente encontrado.</p>';
         return;
     }
 
-    clientes.forEach(cliente => {
+    lista.forEach(cliente => {
         const div = document.createElement('div');
-        div.className = 'client-item';
+        div.className = `client-item ${cliente.status}`;
         div.innerHTML = `
-            <strong>${cliente.nome}</strong> (${cliente.status})<br>
+            <strong>${cliente.nome}</strong> (${cliente.status === 'ativo' ? '✅ Ativo' : '❌ Inativo'})<br>
             📧 ${cliente.email} | 📞 ${cliente.telefone || 'Não informado'}<br>
             🆔 CPF: ${cliente.cpf} | 🏙️ ${cliente.cidade || 'Não informada'}<br>
             <small>Cadastrado em: ${cliente.dataCadastro}</small>
@@ -133,6 +98,37 @@ function atualizarListaClientes() {
         `;
         container.appendChild(div);
     });
+    
+    atualizarEstatisticas();
+}
+
+function filtrarClientes() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const statusFilter = document.getElementById('filterStatus').value;
+    
+    let resultados = clientes;
+    
+    // Filter by search term
+    if (searchTerm) {
+        resultados = resultados.filter(cliente => 
+            cliente.nome.toLowerCase().includes(searchTerm) ||
+            cliente.email.toLowerCase().includes(searchTerm) ||
+            cliente.cpf.includes(searchTerm)
+        );
+    }
+    
+    // Filter by status
+    if (statusFilter !== 'todos') {
+        resultados = resultados.filter(cliente => cliente.status === statusFilter);
+    }
+    
+    atualizarListaClientes(resultados);
+}
+
+function limparFiltro() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('filterStatus').value = 'todos';
+    atualizarListaClientes();
 }
 
 function editarCliente(id) {
@@ -146,7 +142,7 @@ function editarCliente(id) {
         document.getElementById('telefone').value = cliente.telefone || '';
         document.getElementById('cidade').value = cliente.cidade || '';
         document.getElementById('status').value = cliente.status;
-        showMessage('⚠️ Modo edição - Atualize os dados e clique em "Cadastrar Cliente"', 'error');
+        showMessage('⚠️ Modo edição - Atualize os dados e clique em "Cadastrar Cliente"', 'info');
     }
 }
 
@@ -273,5 +269,59 @@ document.getElementById('clientForm').addEventListener('submit', function(e) {
     atualizarListaClientes();
 });
 
-// Initialize the client list
+// Export functions
+function exportarCSV() {
+    if (clientes.length === 0) {
+        showMessage('❌ Nenhum cliente para exportar!', 'error');
+        return;
+    }
+    
+    let csv = 'ID,Nome,E-mail,CPF,Telefone,Cidade,Status,DataCadastro\n';
+    clientes.forEach(cliente => {
+        csv += `"${cliente.id}","${cliente.nome}","${cliente.email}","${cliente.cpf}","${cliente.telefone || ''}","${cliente.cidade || ''}","${cliente.status}","${cliente.dataCadastro}"\n`;
+    });
+    
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'clientes.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    showMessage('✅ Lista de clientes exportada com sucesso!', 'success');
+}
+
+function exportarJSON() {
+    if (clientes.length === 0) {
+        showMessage('❌ Nenhum cliente para exportar!', 'error');
+        return;
+    }
+    
+    const data = {
+        metadata: {
+            totalClientes: clientes.length,
+            dataExportacao: new Date().toISOString(),
+            versao: '2.0.0'
+        },
+        clientes: clientes
+    };
+    
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'clientes.json');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    showMessage('✅ Lista de clientes exportada com sucesso!', 'success');
+}
+
+// Initialize the client list and statistics
 atualizarListaClientes();
+atualizarEstatisticas();
