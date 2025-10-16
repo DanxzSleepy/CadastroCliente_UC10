@@ -1,5 +1,19 @@
 # 📋 Changelog - Sistema de Cadastro de Clientes
 
+## [v2.4.0] - Aprimoramento visual do sistema e melhoria na pesquisa de cidades - 2025-10-16
+### 🎨 Aprimoramentos visuais
+- Redesign completo da interface com gradientes e efeitos modernos
+- Aprimoramento dos estilos CSS para todos os elementos do sistema
+- Adição de animações e transições suaves para melhor experiência do usuário
+- Melhoria na aparência dos botões, campos de formulário e cards
+- Atualização da paleta de cores com tons roxos e gradientes suaves
+
+### 🔍 Melhorias na pesquisa de cidades
+- Implementação de debounce na pesquisa de cidades para melhor performance
+- Melhoria na experiência do usuário ao pesquisar cidades
+- Atualização do placeholder do campo de pesquisa com instruções mais claras
+- Otimização do filtro de cidades com melhor feedback visual
+
 ## [v2.3.0] - Adição da pesquisa de cidades e expansão da base de países/cidades - 2025-10-16
 ### 🌍 Novas funcionalidades
 - Expansão da base de dados para incluir mais de 150 países

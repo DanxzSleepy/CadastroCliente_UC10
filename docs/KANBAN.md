@@ -9,6 +9,18 @@ kanban-plugin: basic
 - [ ] Aprimorar interface com feedback visual
 
 
+## Concluído - v2.4.0
+
+- [x] Redesign completo da interface com gradientes e efeitos modernos
+- [x] Aprimoramento dos estilos CSS para todos os elementos do sistema
+- [x] Adição de animações e transições suaves para melhor experiência do usuário
+- [x] Melhoria na aparência dos botões, campos de formulário e cards
+- [x] Atualização da paleta de cores com tons roxos e gradientes suaves
+- [x] Implementação de debounce na pesquisa de cidades para melhor performance
+- [x] Melhoria na experiência do usuário ao pesquisar cidades
+- [x] Atualização do placeholder do campo de pesquisa com instruções mais claras
+
+
 ## Concluído - v2.3.0
 
 - [x] Expansão da base de dados para incluir mais de 150 países
@@ -55,6 +67,7 @@ kanban-plugin: basic
 <!--
 
 - [ ] Novas Funcionalidades Solicitadas
+- [ ] Concluído - v2.4.0
 - [ ] Concluído - v2.3.0
 - [ ] Concluído - v2.2.0
 - [ ] Concluído - v2.1.0

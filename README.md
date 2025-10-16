@@ -52,6 +52,7 @@ Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e
     - Selecione um país
     - Digite parte do nome de uma cidade no campo de pesquisa
     - Verifique se a lista de cidades é filtrada
+    - Selecione uma cidade da lista filtrada
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML5
@@ -85,6 +86,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE.md](LICENSE.md) p
 - **v2.1.0**: Aprimoramentos finais e preparação para apresentação
 - **v2.2.0**: Adição da seleção dinâmica de país/cidade
 - **v2.3.0**: Adição da pesquisa de cidades e expansão da base de países/cidades
+- **v2.4.0**: Aprimoramento visual do sistema e melhoria na pesquisa de cidades
 
 ## 📞 Desenvolvedor
 Desenvolvido por Danilo Ícaro Alves Santos como parte do currículo da disciplina de Tecnologia em Desenvolvimento de Sistemas.

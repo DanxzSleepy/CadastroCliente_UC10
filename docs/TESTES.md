@@ -1,9 +1,42 @@
-# 🧪 Testes - v2.3.0
+# 🧪 Testes - v2.4.0
 
 ## 📋 Visão Geral
-Este documento descreve os testes realizados para validar as correções de bugs e melhorias implementadas nas versões v1.1.0, v2.0.0, v2.1.0, v2.2.0 e v2.3.0 do Sistema de Cadastro de Clientes.
+Este documento descreve os testes realizados para validar as correções de bugs e melhorias implementadas nas versões v1.1.0, v2.0.0, v2.1.0, v2.2.0, v2.3.0 e v2.4.0 do Sistema de Cadastro de Clientes.
 
-## 🔍 Nova Funcionalidade - Pesquisa de Cidades (v2.3.0)
+## 🎨 Aprimoramentos Visuais (v2.4.0)
+
+### 1. Redesign da Interface
+**Funcionalidade**: Aprimoramento completo da interface com novos estilos e efeitos visuais.
+
+**Implementação**:
+- Novos estilos CSS para todos os elementos
+- Gradientes e efeitos modernos
+- Animações e transições suaves
+- Paleta de cores atualizada
+
+**Testes Realizados**:
+- ✅ Aplicação correta dos novos estilos em todos os elementos
+- ✅ Funcionamento adequado das animações e transições
+- ✅ Consistência visual em diferentes navegadores
+- ✅ Responsividade mantida com os novos estilos
+- ✅ Melhoria na aparência dos botões, campos e cards
+
+### 2. Melhorias na Pesquisa de Cidades
+**Funcionalidade**: Aprimoramento da experiência do usuário na pesquisa de cidades.
+
+**Implementação**:
+- Implementação de debounce para melhor performance
+- Atualização do placeholder com instruções mais claras
+- Otimização do filtro de cidades
+
+**Testes Realizados**:
+- ✅ Funcionamento correto do debounce na pesquisa
+- ✅ Melhoria na performance ao digitar na pesquisa
+- ✅ Placeholder com instruções claras para o usuário
+- ✅ Filtragem correta das cidades conforme digitação
+- ✅ Seleção adequada de cidades da lista filtrada
+
+## 🔍 Funcionalidade Aprimorada - Pesquisa de Cidades (v2.3.0)
 
 ### 1. Expansão da Base de Dados
 **Funcionalidade**: Ampliação da base de dados para incluir mais de 150 países com suas respectivas cidades.
@@ -325,10 +358,11 @@ Este documento descreve os testes realizados para validar as correções de bugs
 4. ✅ Interface responsiva e visualmente agradável
 5. ✅ Seleção dinâmica de país/cidade
 6. ✅ Pesquisa de cidades
+7. ✅ Novos estilos visuais e animações
 
 ## 📊 Resultados dos Testes
-- **Total de testes**: 85
-- **Testes passados**: 85 (100%)
+- **Total de testes**: 95
+- **Testes passados**: 95 (100%)
 - **Testes falhos**: 0 (0%)
 - **Cobertura**: Alta (todas as funcionalidades principais cobertas)
 
@@ -340,4 +374,4 @@ Este documento descreve os testes realizados para validar as correções de bugs
 - ✅ Confirmação de operações destrutivas
 
 ## 🚀 Próximos Passos
-Os testes realizados nas versões v1.1.0, v2.0.0, v2.1.0, v2.2.0 e v2.3.0 estabelecem uma base sólida para as funcionalidades futuras. As versões estão prontas para uso em ambiente de desenvolvimento e testes.
+Os testes realizados nas versões v1.1.0, v2.0.0, v2.1.0, v2.2.0, v2.3.0 e v2.4.0 estabelecem uma base sólida para as funcionalidades futuras. As versões estão prontas para uso em ambiente de desenvolvimento e testes.
