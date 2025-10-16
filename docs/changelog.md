@@ -1,5 +1,18 @@
 # 📋 Changelog - Sistema de Cadastro de Clientes
 
+## [v2.3.0] - Adição da pesquisa de cidades e expansão da base de países/cidades - 2025-10-16
+### 🌍 Novas funcionalidades
+- Expansão da base de dados para incluir mais de 150 países
+- Adição de listas completas de cidades para todos os países (média de 5-20 cidades por país)
+- Implementação de campo de pesquisa para facilitar a seleção de cidades
+- População automática do dropdown de países com todos os países disponíveis
+
+### 🎨 Melhorias na interface
+- Adição de campo de texto para pesquisa de cidades
+- Atualização do formulário com novo campo de pesquisa
+- Melhorias nos estilos CSS para os novos elementos
+- Mensagens de ajuda aprimoradas para os novos campos
+
 ## [v2.2.0] - Adição da seleção dinâmica de país/cidade - 2025-10-16
 ### 🌍 Novas funcionalidades
 - Adição de campo obrigatório para seleção de país

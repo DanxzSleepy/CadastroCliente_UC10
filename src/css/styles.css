@@ -246,3 +246,12 @@ small {
     color: #6c757d;
     font-size: 0.875em;
 }
+
+/* City search input styling */
+#cidadeSearch {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-style: italic;
+}

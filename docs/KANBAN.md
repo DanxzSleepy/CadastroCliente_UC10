@@ -9,6 +9,14 @@ kanban-plugin: basic
 - [ ] Aprimorar interface com feedback visual
 
 
+## Concluído - v2.3.0
+
+- [x] Expansão da base de dados para incluir mais de 150 países
+- [x] Adição de listas completas de cidades para todos os países
+- [x] Implementação de campo de pesquisa para facilitar a seleção de cidades
+- [x] População automática do dropdown de países com todos os países disponíveis
+
+
 ## Concluído - v2.2.0
 
 - [x] Adição de campo obrigatório para seleção de país
@@ -47,6 +55,7 @@ kanban-plugin: basic
 <!--
 
 - [ ] Novas Funcionalidades Solicitadas
+- [ ] Concluído - v2.3.0
 - [ ] Concluído - v2.2.0
 - [ ] Concluído - v2.1.0
 - [ ] Concluído - v2.0.0

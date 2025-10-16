@@ -1,22 +1,69 @@
-# 🧪 Testes - v2.2.0
+# 🧪 Testes - v2.3.0
 
 ## 📋 Visão Geral
-Este documento descreve os testes realizados para validar as correções de bugs e melhorias implementadas nas versões v1.1.0, v2.0.0, v2.1.0 e v2.2.0 do Sistema de Cadastro de Clientes.
+Este documento descreve os testes realizados para validar as correções de bugs e melhorias implementadas nas versões v1.1.0, v2.0.0, v2.1.0, v2.2.0 e v2.3.0 do Sistema de Cadastro de Clientes.
 
-## 🌍 Nova Funcionalidade - Seleção Dinâmica de País/Cidade (v2.2.0)
+## 🔍 Nova Funcionalidade - Pesquisa de Cidades (v2.3.0)
+
+### 1. Expansão da Base de Dados
+**Funcionalidade**: Ampliação da base de dados para incluir mais de 150 países com suas respectivas cidades.
+
+**Implementação**:
+- Adição de base de dados com mais de 150 países
+- Inclusão de 5-20 cidades principais para cada país
+- Função para popular automaticamente o dropdown de países
+
+**Testes Realizados**:
+- ✅ População correta do dropdown de países com mais de 150 opções
+- ✅ Ordenação alfabética dos países no dropdown
+- ✅ Seleção de diversos países e verificação das cidades correspondentes
+- ✅ Verificação da quantidade de cidades por país
+
+### 2. Campo de Pesquisa de Cidades
+**Funcionalidade**: Adição de campo de texto para filtrar cidades com base na digitação do usuário.
+
+**Implementação**:
+- Campo de input para pesquisa de cidades
+- Função `filtrarCidades()` que atualiza o dropdown de cidades em tempo real
+- Integração com a seleção dinâmica de cidades
+
+**Testes Realizados**:
+- ✅ Exibição do campo de pesquisa de cidades
+- ✅ Filtragem correta das cidades ao digitar parte do nome
+- ✅ Atualização em tempo real do dropdown de cidades
+- ✅ Limpeza do filtro ao limpar o campo de pesquisa
+- ✅ Mensagem apropriada quando nenhuma cidade é encontrada
+- ✅ Funcionamento correto ao trocar de país com pesquisa ativa
+
+### 3. Integração com Funcionalidades Existentes
+**Funcionalidade**: Integração completa das novas funcionalidades com o sistema existente.
+
+**Implementação**:
+- Atualização da função de cadastro para incluir novos campos
+- Manutenção da persistência de dados
+- Atualização das funções de exportação
+
+**Testes Realizados**:
+- ✅ Cadastro de cliente com país e cidade selecionados via pesquisa
+- ✅ Edição de cliente mantendo os dados de país e cidade
+- ✅ Exportação CSV incluindo os novos campos
+- ✅ Exportação JSON incluindo os novos campos
+- ✅ Persistência correta dos dados após recarregar a página
+
+## 🌍 Funcionalidade Aprimorada - Seleção Dinâmica de País/Cidade (v2.2.0)
 
 ### 1. Seleção de País
 **Funcionalidade**: Permitir que o usuário selecione um país da lista suspensa.
 
 **Implementação**:
-- Campo select com opções de 5 países
+- Campo select com opções de mais de 150 países
 - Validação de campo obrigatório
 - Integração com seleção de cidades
 
 **Testes Realizados**:
 - ✅ Exibição correta das opções de país
 - ✅ Validação de campo obrigatório (tentar enviar sem selecionar)
-- ✅ Seleção de cada país disponível
+- ✅ Seleção de vários países disponíveis
 - ✅ Mensagem de erro apropriada quando país não selecionado
 
 ### 2. Seleção Dinâmica de Cidades
@@ -31,11 +78,7 @@ Este documento descreve os testes realizados para validar as correções de bugs
 **Testes Realizados**:
 - ✅ Desabilitação inicial do campo de cidades
 - ✅ Habilitação do campo após seleção de país
-- ✅ População correta de cidades para Brasil (15 cidades)
-- ✅ População correta de cidades para Portugal (10 cidades)
-- ✅ População correta de cidades para Estados Unidos (10 cidades)
-- ✅ População correta de cidades para Argentina (10 cidades)
-- ✅ População correta de cidades para Espanha (10 cidades)
+- ✅ População correta de cidades para diversos países
 - ✅ Limpeza de opções ao trocar país
 - ✅ Validação de campo obrigatório (tentar enviar sem selecionar cidade)
 - ✅ Mensagem de erro apropriada quando cidade não selecionada
@@ -281,10 +324,11 @@ Este documento descreve os testes realizados para validar as correções de bugs
 3. ✅ Verificação de estatísticas em tempo real
 4. ✅ Interface responsiva e visualmente agradável
 5. ✅ Seleção dinâmica de país/cidade
+6. ✅ Pesquisa de cidades
 
 ## 📊 Resultados dos Testes
-- **Total de testes**: 65
-- **Testes passados**: 65 (100%)
+- **Total de testes**: 85
+- **Testes passados**: 85 (100%)
 - **Testes falhos**: 0 (0%)
 - **Cobertura**: Alta (todas as funcionalidades principais cobertas)
 
@@ -296,4 +340,4 @@ Este documento descreve os testes realizados para validar as correções de bugs
 - ✅ Confirmação de operações destrutivas
 
 ## 🚀 Próximos Passos
-Os testes realizados nas versões v1.1.0, v2.0.0, v2.1.0 e v2.2.0 estabelecem uma base sólida para as funcionalidades futuras. As versões estão prontas para uso em ambiente de desenvolvimento e testes.
+Os testes realizados nas versões v1.1.0, v2.0.0, v2.1.0, v2.2.0 e v2.3.0 estabelecem uma base sólida para as funcionalidades futuras. As versões estão prontas para uso em ambiente de desenvolvimento e testes.

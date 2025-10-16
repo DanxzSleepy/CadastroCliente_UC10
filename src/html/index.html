@@ -41,13 +41,15 @@
                 <label for="pais">País *</label>
                 <select id="pais" name="pais" required>
                     <option value="">Selecione um país</option>
-                    <option value="Brasil">Brasil</option>
-                    <option value="Portugal">Portugal</option>
-                    <option value="Estados Unidos">Estados Unidos</option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Espanha">Espanha</option>
+                    <!-- Countries will be populated by JavaScript -->
                 </select>
                 <small>Selecione o país do cliente</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="cidadeSearch">Pesquisar Cidade</label>
+                <input type="text" id="cidadeSearch" placeholder="Digite o nome da cidade...">
+                <small>Digite para filtrar as cidades disponíveis</small>
             </div>
             
             <div class="form-group">

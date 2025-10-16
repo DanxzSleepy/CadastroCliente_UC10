@@ -9,8 +9,8 @@ Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e
    - E-mail (validação completa)
    - CPF (validação completa com algoritmo oficial)
    - Telefone (opcional, com máscara automática)
-   - País (seleção de lista suspensa)
-   - Cidade (seleção dinâmica baseada no país escolhido)
+   - País (seleção de lista suspensa com mais de 150 países)
+   - Cidade (seleção dinâmica baseada no país escolhido, com pesquisa)
    - Status (ativo/inativo)
 2. Visualização da lista de clientes cadastrados
 3. Edição de clientes existentes (atualização real dos dados)
@@ -24,6 +24,7 @@ Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e
 11. Interface aprimorada com feedback visual e indicadores de status
 12. Sistema de notificações popup para melhor experiência do usuário
 13. Seleção dinâmica de cidades baseada no país escolhido
+14. Pesquisa de cidades para facilitar a seleção
 
 ## ▶️ Como Executar
 1. Baixe ou clone este repositório
@@ -47,6 +48,10 @@ Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e
 12. Teste a seleção dinâmica de país/cidade:
     - Selecione um país e verifique se as cidades são carregadas
     - Tente enviar o formulário sem selecionar país ou cidade
+13. Teste a pesquisa de cidades:
+    - Selecione um país
+    - Digite parte do nome de uma cidade no campo de pesquisa
+    - Verifique se a lista de cidades é filtrada
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML5
@@ -79,6 +84,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE.md](LICENSE.md) p
 - **v2.0.0**: Implementação de novas funcionalidades
 - **v2.1.0**: Aprimoramentos finais e preparação para apresentação
 - **v2.2.0**: Adição da seleção dinâmica de país/cidade
+- **v2.3.0**: Adição da pesquisa de cidades e expansão da base de países/cidades
 
 ## 📞 Desenvolvedor
 Desenvolvido por Danilo Ícaro Alves Santos como parte do currículo da disciplina de Tecnologia em Desenvolvimento de Sistemas.

@@ -1,32 +1,278 @@
 let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
 let nextId = clientes.length > 0 ? Math.max(...clientes.map(c => c.id)) + 1 : 1;
 
-// Database of cities by country
+// Comprehensive database of cities by country
 const cidadesPorPais = {
+    "Afeganistão": ["Cabul", "Kandahar", "Herat", "Mazar-i-Sharif", "Jalalabad"],
+    "África do Sul": ["Joanesburgo", "Cidade do Cabo", "Durban", "Pretória", "Port Elizabeth"],
+    "Albânia": ["Tirana", "Durrës", "Vlorë", "Elbasan", "Shkodër"],
+    "Alemanha": ["Berlim", "Hamburgo", "Munique", "Colônia", "Frankfurt", "Stuttgart", "Düsseldorf", "Leipzig", "Dortmund", "Essen"],
+    "Andorra": ["Andorra-a-Velha", "Escaldes-Engordany", "Encamp", "Sant Julià de Lòria", "La Massana"],
+    "Angola": ["Luanda", "Huambo", "Lobito", "Benguela", "Namibe"],
+    "Antígua e Barbuda": ["Saint John's", "All Saints", "Liberta", "Bolans", "Piggotts"],
+    "Arábia Saudita": ["Riade", "Jeddah", "Meca", "Medina", "Dammam", "Taif", "Tabuk", "Buraydah", "Khamis Mushait", "Hofuf"],
+    "Argélia": ["Argel", "Oran", "Constantine", "Annaba", "Blida"],
+    "Argentina": ["Buenos Aires", "Córdoba", "Rosário", "Mendoza", "La Plata", "Tucumán", "Mar del Plata", "Salta", "Santa Fe", "San Juan"],
+    "Armênia": ["Yerevan", "Gyumri", "Vanadzor", "Vagharshapat", "Hrazdan"],
+    "Austrália": ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Gold Coast", "Newcastle", "Canberra", "Sunshine Coast", "Wollongong"],
+    "Áustria": ["Viena", "Graz", "Linz", "Salzburg", "Innsbruck"],
+    "Azerbaijão": ["Baku", "Ganja", "Sumqayit", "Lankaran", "Mingachevir"],
+    "Bahamas": ["Nassau", "Freeport", "West End", "Cooper's Town", "George Town"],
+    "Bangladesh": ["Dhaka", "Chittagong", "Khulna", "Rajshahi", "Barisal"],
+    "Barbados": ["Bridgetown", "Speightstown", "Oistins", "Bathsheba", "Holetown"],
+    "Barein": ["Manama", "Al Muharraq", "Arad", "Isa Town", "Hamad Town"],
+    "Bélgica": ["Bruxelas", "Antuérpia", "Gante", "Charleroi", "Liège"],
+    "Belize": ["Belmopan", "Belize City", "San Ignacio", "Orange Walk", "Dangriga"],
+    "Benin": ["Porto Novo", "Cotonou", "Djougou", "Abomey-Calavi", "Parakou"],
+    "Bielorrússia": ["Minsk", "Gomel", "Mogilev", "Vitebsk", "Grodno"],
+    "Bolívia": ["La Paz", "Santa Cruz de la Sierra", "Cochabamba", "Sucre", "Oruro"],
+    "Bósnia e Herzegovina": ["Sarajevo", "Banja Luka", "Tuzla", "Zenica", "Mostar"],
+    "Botsuana": ["Gaborone", "Francistown", "Molepolole", "Selebi-Phikwe", "Maun"],
     "Brasil": [
         "São Paulo", "Rio de Janeiro", "Brasília", "Salvador", "Fortaleza", 
         "Belo Horizonte", "Manaus", "Curitiba", "Recife", "Porto Alegre",
-        "Belém", "Goiânia", "Guarulhos", "Campinas", "São Luís"
+        "Belém", "Goiânia", "Guarulhos", "Campinas", "São Luís",
+        "Maceió", "Duque de Caxias", "Natal", "Teresina", "Campo Grande"
     ],
-    "Portugal": [
-        "Lisboa", "Porto", "Braga", "Coimbra", "Faro", 
-        "Aveiro", "Leiria", "Viseu", "Setúbal", "Viana do Castelo"
+    "Brunei": ["Bandar Seri Begawan", "Kuala Belait", "Seria", "Tutong", "Bangar"],
+    "Bulgária": ["Sofia", "Plovdiv", "Varna", "Burgas", "Ruse"],
+    "Burkina Faso": ["Ouagadougou", "Bobo-Dioulasso", "Koudougou", "Banfora", "Ouahigouya"],
+    "Burundi": ["Gitega", "Bujumbura", "Muyinga", "Ruyigi", "Ngozi"],
+    "Butão": ["Thimphu", "Phuntsholing", "Punakha", "Jakar", "Wangdue Phodrang"],
+    "Cabo Verde": ["Praia", "Mindelo", "Santa Maria", "Cova Figueira", "Espargos"],
+    "Camarões": ["Yaoundé", "Douala", "Garoua", "Maroua", "Bamenda"],
+    "Camboja": ["Phnom Penh", "Siem Reap", "Sihanoukville", "Battambang", "Kampong Cham"],
+    "Canadá": [
+        "Toronto", "Montreal", "Vancouver", "Calgary", "Edmonton", 
+        "Ottawa", "Winnipeg", "Quebec City", "Hamilton", "Kitchener",
+        "London", "Victoria", "Halifax", "Oshawa", "Windsor"
+    ],
+    "Catar": ["Doha", "Al Rayyan", "Umm Salal", "Al Wakrah", "Al Khor"],
+    "Cazaquistão": ["Nur-Sultan", "Almaty", "Shymkent", "Aktobe", "Karaganda"],
+    "Chade": ["N'Djamena", "Moundou", "Sarh", "Abéché", "Kelo"],
+    "Chile": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta"],
+    "China": [
+        "Xangai", "Pequim", "Cantão", "Shenzhen", "Chongqing", 
+        "Tianjin", "Wuhan", "Dongguan", "Hong Kong", "Foshan"
+    ],
+    "Chipre": ["Nicósia", "Limassol", "Larnaca", "Famagusta", "Paphos"],
+    "Colômbia": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena"],
+    "Comores": ["Moroni", "Mutsamudu", "Fomboni", "Domoni", "Tsimbeo"],
+    "Congo": ["Brazzaville", "Pointe-Noire", "Dolisie", "Kayes", "Owando"],
+    "Coreia do Norte": ["Pyongyang", "Hamhung", "Chongjin", "Wonsan", "Rason"],
+    "Coreia do Sul": ["Seul", "Busan", "Incheon", "Daegu", "Gwangju"],
+    "Costa do Marfim": ["Abidjan", "Abobo", "Bouaké", "Daloa", "Yamoussoukro"],
+    "Costa Rica": ["San José", "Alajuela", "Cartago", "Heredia", "Liberia"],
+    "Croácia": ["Zagreb", "Split", "Rijeka", "Osijek", "Zadar"],
+    "Cuba": ["Havana", "Santiago de Cuba", "Camagüey", "Holguín", "Guantánamo"],
+    "Dinamarca": ["Copenhague", "Aarhus", "Odense", "Aalborg", "Esbjerg"],
+    "Djibuti": ["Djibuti", "Ali Sabieh", "Tadjourah", "Obock", "Dikhil"],
+    "Dominica": ["Roseau", "Portsmouth", "Marigot", "Berekua", "Colihaut"],
+    "Egito": ["Cairo", "Alexandria", "Giza", "Shubra El Kheima", "Port Said"],
+    "El Salvador": ["San Salvador", "Santa Ana", "San Miguel", "Sonsonate", "Ahuachapán"],
+    "Emirados Árabes Unidos": ["Dubai", "Abu Dhabi", "Sharjah", "Al Ain", "Ajman"],
+    "Equador": ["Quito", "Guayaquil", "Cuenca", "Machala", "Santo Domingo"],
+    "Eritreia": ["Asmara", "Keren", "Massawa", "Assab", "Mendefera"],
+    "Eslováquia": ["Bratislava", "Košice", "Prešov", "Žilina", "Nitra"],
+    "Eslovênia": ["Ljubljana", "Maribor", "Kranj", "Koper", "Celje"],
+    "Espanha": [
+        "Madri", "Barcelona", "Valência", "Sevilha", "Zaragoza", 
+        "Málaga", "Murcia", "Palma de Mallorca", "Las Palmas", "Bilbao",
+        "Córdoba", "Valladolid", "Vigo", "Gijón", "Hospitalet de Llobregat"
     ],
     "Estados Unidos": [
         "Nova York", "Los Angeles", "Chicago", "Houston", "Phoenix", 
-        "Filadélfia", "San Antonio", "San Diego", "Dallas", "San Jose"
+        "Filadélfia", "San Antonio", "San Diego", "Dallas", "San Jose",
+        "Austin", "Jacksonville", "Fort Worth", "Columbus", "Charlotte"
     ],
-    "Argentina": [
-        "Buenos Aires", "Córdoba", "Rosário", "Mendoza", "La Plata", 
-        "Tucumán", "Mar del Plata", "Salta", "Santa Fe", "San Juan"
+    "Estônia": ["Tallinn", "Tartu", "Narva", "Pärnu", "Kohtla-Järve"],
+    "Eswatini": ["Mbabane", "Manzini", "Lobamba", "Dvokodvweni", "Siteki"],
+    "Etiópia": ["Adis Abeba", "Dire Dawa", "Mekelle", "Bahir Dar", "Hawassa"],
+    "Fiji": ["Suva", "Lautoka", "Nadi", "Labasa", "Ba"],
+    "Filipinas": ["Quezon City", "Manila", "Caloocan", "Budapeste", "Davao City"],
+    "Finlândia": ["Helsinque", "Espoo", "Tampere", "Vantaa", "Oulu"],
+    "França": [
+        "Paris", "Marselha", "Lyon", "Toulouse", "Nice", 
+        "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille"
     ],
-    "Espanha": [
-        "Madri", "Barcelona", "Valência", "Sevilha", "Zaragoza", 
-        "Málaga", "Murcia", "Palma de Mallorca", "Las Palmas", "Bilbao"
-    ]
+    "Gabão": ["Libreville", "Port-Gentil", "Franceville", "Oyem", "Moanda"],
+    "Gâmbia": ["Banjul", "Lower River", "Central River", "Upper River", "Western"],
+    "Gana": ["Acra", "Kumasi", "Tamale", "Takoradi", "Cape Coast"],
+    "Geórgia": ["Tbilisi", "Batumi", "Kutaisi", "Rustavi", "Gori"],
+    "Granada": ["Saint George's", "Gouyave", "Grenville", "Victoria", "Hillsborough"],
+    "Grécia": ["Atenas", "Salônica", "Patras", "Heracleia", "Larissa"],
+    "Guatemala": ["Cidade da Guatemala", "Mixco", "Villa Nueva", "Petapa", "San Juan Sacatepéquez"],
+    "Guiné": ["Conacri", "Nzérékoré", "Kindia", "Kankan", "Labé"],
+    "Guiné Equatorial": ["Malabo", "Bata", "Ebebiyin", "Aconibe", "Anisoc"],
+    "Guiné-Bissau": ["Bissau", "Bafatá", "Gabú", "Bissorã", "Farim"],
+    "Guiana": ["Georgetown", "Linden", "New Amsterdam", "Anna Regina", "Bartica"],
+    "Haiti": ["Porto Príncipe", "Santiago", "Porto de Paix", "Miragoâne", "Léogâne"],
+    "Honduras": ["Tegucigalpa", "San Pedro Sula", "Choloma", "La Ceiba", "El Progreso"],
+    "Hungria": ["Budapeste", "Debrecen", "Szeged", "Miskolc", "Pécs"],
+    "Iêmen": ["Sanaa", "Aden", "Taiz", "Hodeida", "Ibb"],
+    "Ilhas Marshall": ["Majuro", "Ebeye", "Jabor", "Wotje", "Mili"],
+    "Índia": [
+        "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", 
+        "Chennai", "Kolkata", "Surat", "Pune", "Jaipur"
+    ],
+    "Indonésia": ["Jacarta", "Surabaya", "Medan", "Bandung", "Makassar"],
+    "Irã": ["Teerã", "Mashhad", "Isfahan", "Karaj", "Tabriz"],
+    "Iraque": ["Bagdá", "Basra", "Mosul", "Erbil", "Sulaymaniyah"],
+    "Irlanda": ["Dublin", "Cork", "Limerick", "Galway", "Waterford"],
+    "Islândia": ["Reykjavik", "Kópavogur", "Hafnarfjörður", "Akureyri", "Reykjanesbær"],
+    "Israel": ["Tel Aviv", "Jerusalém", "Haifa", "Beer Sheva", "Netanya"],
+    "Itália": [
+        "Roma", "Milão", "Nápoles", "Turim", "Palermo", 
+        "Gênova", "Bolonha", "Florença", "Bari", "Catânia"
+    ],
+    "Jamaica": ["Kingston", "Montego Bay", "Spanish Town", "Portmore", "May Pen"],
+    "Japão": [
+        "Tóquio", "Yokohama", "Osaka", "Nagoya", "Sapporo", 
+        "Fukuoka", "Kobe", "Kyoto", "Kawasaki", "Saitama"
+    ],
+    "Jordânia": ["Amã", "Zarqa", "Irbid", "Russeifa", "Aqaba"],
+    "Kiribati": ["Tarawa", "Betio", "Bikenibeu", "Arorae", "Butaritari"],
+    "Kosovo": ["Pristina", "Prizren", "Peja", "Gjakova", "Ferizaj"],
+    "Kuwait": ["Cidade do Kuwait", "Hawalli", "Salmiya", "Jahra", "Ardiya"],
+    "Laos": ["Vientiane", "Luang Prabang", "Savannakhet", "Pakse", "Thakhek"],
+    "Lesoto": ["Maseru", "Mafeteng", "Leribe", "Maputsoe", "Mokhotlong"],
+    "Letônia": ["Riga", "Daugavpils", "Liepāja", "Jelgava", "Jūrmala"],
+    "Líbano": ["Beirute", "Trípoli", "Sidon", "Tyre", "Baabda"],
+    "Libéria": ["Monróvia", "Gbarnga", "Kakata", "Bensonville", "Harper"],
+    "Líbia": ["Trípoli", "Bengasi", "Misrata", "Al Bayda", "Sebha"],
+    "Liechtenstein": ["Vaduz", "Schaan", "Balzers", "Triesen", "Eschen"],
+    "Lituânia": ["Vilnius", "Kaunas", "Klaipėda", "Šiauliai", "Panevėžys"],
+    "Luxemburgo": ["Luxemburgo", "Esch-sur-Alzette", "Dudelange", "Schifflange", "Bettemburg"],
+    "Macedônia do Norte": ["Skopje", "Bitola", "Kumanovo", "Prilep", "Tetovo"],
+    "Madagascar": ["Antananarivo", "Toamasina", "Antsirabe", "Fianarantsoa", "Mahajanga"],
+    "Malásia": ["Kuala Lumpur", "George Town", "Johor Bahru", "Kota Kinabalu", "Shah Alam"],
+    "Malawi": ["Lilongwe", "Blantyre", "Mzuzu", "Zomba", "Karonga"],
+    "Maldivas": ["Malé", "Addu City", "Fuvahmulah", "Hithadhoo", "Kulhudhuffushi"],
+    "Mali": ["Bamako", "Ségou", "Mopti", "Koutiala", "Sikasso"],
+    "Malta": ["Valletta", "Birkirkara", "Mosta", "Sliema", "Qormi"],
+    "Marrocos": ["Rabat", "Casablanca", "Fez", "Tangier", "Marrakech"],
+    "Maurício": ["Port Louis", "Beau Bassin", "Vacoas", "Curepipe", "Quatre Bornes"],
+    "Mauritânia": ["Nouakchott", "Nouadhibou", "Néma", "Kiffa", "Rosso"],
+    "México": [
+        "Cidade do México", "Guadalajara", "Monterrey", "Puebla", "Tijuana", 
+        "Ciudad Juárez", "León", "Zapopan", "Monterrey", "Nezahualcóyotl"
+    ],
+    "Micronésia": ["Palikir", "Weno", "Colonia", "Tofol", "Pohnpei"],
+    "Moçambique": ["Maputo", "Matola", "Beira", "Nampula", "Chimoio"],
+    "Moldávia": ["Chisinau", "Tiraspol", "Bălți", "Bender", "Rîbnița"],
+    "Mônaco": ["Mônaco", "Monte Carlo", "Fontvieille", "Moneghetti", "Saint-Roman"],
+    "Mongólia": ["Ulan Bator", "Erdenet", "Darkhan", "Choibalsan", "Mörön"],
+    "Montenegro": ["Podgorica", "Nikšić", "Herceg Novi", "Pljevlja", "Budva"],
+    "Myanmar": ["Yangon", "Mandalay", "Naypyidaw", "Mawlamyine", "Pathein"],
+    "Namíbia": ["Windhoek", "Rundu", "Walvis Bay", "Oshakati", "Swakopmund"],
+    "Nauru": ["Yaren", "Anabar", "Anetan", "Anibare", "Baiti"],
+    "Nepal": ["Catmandu", "Pokhara", "Lalitpur", "Biratnagar", "Bharatpur"],
+    "Nicarágua": ["Manágua", "León", "Masaya", "Chinandega", "Matagalpa"],
+    "Níger": ["Niamey", "Zinder", "Maradi", "Agadez", "Tahoua"],
+    "Nigéria": ["Lagos", "Kano", "Ibadan", "Abuja", "Port Harcourt"],
+    "Noruega": ["Oslo", "Bergen", "Trondheim", "Stavanger", "Drammen"],
+    "Nova Zelândia": ["Auckland", "Wellington", "Christchurch", "Hamilton", "Tauranga"],
+    "Omã": ["Mascat", "Salalah", "Bawshar", "Sohar", "Sur"],
+    "Países Baixos": ["Amsterdã", "Rotterdam", "Haia", "Utrecht", "Eindhoven"],
+    "Palau": ["Ngerulmud", "Koror", "Melekeok", "Ngarams", "Ngchesar"],
+    "Palestina": ["Jerusalém Oriental", "Gaza", "Hebron", "Nablus", "Bethlehem"],
+    "Panamá": ["Cidade do Panamá", "San Miguelito", "Juan Díaz", "David", "Arraiján"],
+    "Papua-Nova Guiné": ["Port Moresby", "Lae", "Mount Hagen", "Popondetta", "Madang"],
+    "Paquistão": ["Karachi", "Lahore", "Faisalabad", "Rawalpindi", "Multan"],
+    "Paraguai": ["Assunção", "Ciudad del Este", "San Lorenzo", "Capiatá", "Lambaré"],
+    "Peru": ["Lima", "Arequipa", "Callao", "Trujillo", "Chiclayo"],
+    "Polônia": ["Varsóvia", "Cracóvia", "Łódź", "Wrocław", "Poznań"],
+    "Portugal": [
+        "Lisboa", "Porto", "Braga", "Coimbra", "Faro", 
+        "Aveiro", "Leiria", "Viseu", "Setúbal", "Viana do Castelo",
+        "Bragança", "Évora", "Funchal", "Ponta Delgada", "Angra do Heroísmo"
+    ],
+    "Quênia": ["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret"],
+    "Quirguistão": ["Bishkek", "Osh", "Jalal-Abad", "Karakol", "Tokmok"],
+    "Reino Unido": [
+        "Londres", "Birmingham", "Leeds", "Glasgow", "Sheffield", 
+        "Bradford", "Liverpool", "Manchester", "Bristol", "Wakefield"
+    ],
+    "República Centro-Africana": ["Bangui", "Bimbo", "Berdjida", "Bozoum", "Kaga Bandoro"],
+    "República Democrática do Congo": ["Kinshasa", "Lubumbashi", "Mbuji-Mayi", "Kananga", "Kisangani"],
+    "República Dominicana": ["Santo Domingo", "Santiago", "Santo Domingo Oeste", "Santo Domingo Este", "San Pedro de Macorís"],
+    "República Tcheca": ["Praga", "Brno", "Ostrava", "Plzeň", "Liberec"],
+    "Romênia": ["Bucareste", "Cluj-Napoca", "Timișoara", "Iași", "Constanța"],
+    "Ruanda": ["Kigali", "Butare", "Gitarama", "Ruhengeri", "Gisenyi"],
+    "Rússia": [
+        "Moscou", "São Petersburgo", "Novosibirsk", "Ekaterinburgo", "Kazan", 
+        "Nizhny Novgorod", "Chelyabinsk", "Samara", "Omsk", "Rostov-on-Don"
+    ],
+    "Salomão": ["Honiara", "Gizo", "Auki", "Kirakira", "Tulagi"],
+    "Salvador": ["San Salvador", "Santa Ana", "San Miguel", "Sonsonate", "Ahuachapán"],
+    "Samoa": ["Apia", "Vaitele", "Faleula", "Siusega", "Safotulafono"],
+    "San Marino": ["Cidade de San Marino", "Serravalle", "Borgo Maggiore", "Domagnano", "Faetano"],
+    "Santa Lúcia": ["Castries", "Gros Islet", "Vieux Fort", "Micoud", "Soufrière"],
+    "São Cristóvão e Névis": ["Basseterre", "Charlestown", "Dieppe Bay Town", "Newcastle", "Old Road Town"],
+    "São Tomé e Príncipe": ["São Tomé", "Santo Antão", "Trindade", "Norte", "Lobata"],
+    "São Vicente e Granadinas": ["Kingstown", "Chateaubelair", "Port Elizabeth", "Barrouallie", "Layou"],
+    "Senegal": ["Dakar", "Touba", "Thiès", "Rufisque", "Mbour"],
+    "Serra Leoa": ["Freetown", "Bo", "Kenema", "Koidu", "Makeni"],
+    "Sérvia": ["Belgrado", "Novi Sad", "Niš", "Kragujevac", "Subotica"],
+    "Singapura": ["Singapura"],
+    "Síria": ["Damasco", "Aleppo", "Homs", "Latakia", "Deir ez-Zor"],
+    "Somália": ["Mogadíscio", "Hargeisa", "Berbera", "Kismayo", "Bosaso"],
+    "Sri Lanka": ["Colombo", "Kandy", "Galle", "Jaffna", "Matara"],
+    "Sudão": ["Cartum", "Khartoum", "Omdurman", "Port Sudan", "Kassala"],
+    "Sudão do Sul": ["Juba", "Wau", "Malakal", "Bor", "Rumbek"],
+    "Suécia": ["Estocolmo", "Gotemburgo", "Malmö", "Uppsala", "Västerås"],
+    "Suíça": ["Zurique", "Genebra", "Basileia", "Lausana", "Bern"],
+    "Suriname": ["Paramaribo", "Lelydorp", "Brokopondo", "Nieuw Nickerie", "Moengo"],
+    "Tailândia": ["Bangkok", "Nonthaburi", "Nakhon Ratchasima", "Chiang Mai", "Udon Thani"],
+    "Taiwan": ["Taipei", "Kaohsiung", "Taichung", "Tainan", "Banqiao"],
+    "Tajiquistão": ["Dushanbe", "Khujand", "Kulob", "Bokhtar", "Istaravshan"],
+    "Tanzânia": ["Dodoma", "Dar es Salaam", "Mwanza", "Arusha", "Mbeya"],
+    "Timor-Leste": ["Díli", "Maliana", "Suai", "Liquiçá", "Aileu"],
+    "Togo": ["Lomé", "Sokodé", "Kara", "Atakpamé", "Kpalimé"],
+    "Tonga": ["Nuku'alofa", "Neiafu", "Pangai", "Ohonua", "Vaini"],
+    "Trinidad e Tobago": ["Port of Spain", "Chaguanas", "San Fernando", "Arima", "Point Fortin"],
+    "Tunísia": ["Túnis", "Sfax", "Sousse", "Kairouan", "Bizerte"],
+    "Turcomenistão": ["Ashgabat", "Türkmenabat", "Daşoguz", "Mary", "Balkanabat"],
+    "Turquia": [
+        "Istambul", "Ancara", "Izmir", "Bursa", "Adana", 
+        "Gaziantep", "Konya", "Antalya", "Kayseri", "Mersin"
+    ],
+    "Tuvalu": ["Funafuti", "Vaitupu", "Nanumea", "Niulakita", "Nui"],
+    "Ucrânia": [
+        "Kiev", "Kharkiv", "Odessa", "Dnipro", "Donetsk", 
+        "Zaporizhzhia", "Lviv", "Kryvyi Rih", "Mykolaiv", "Mariupol"
+    ],
+    "Uganda": ["Kampala", "Gulu", "Lira", "Mbarara", "Jinja"],
+    "Uruguai": ["Montevidéu", "Salto", "Paysandú", "Las Piedras", "Rivera"],
+    "Uzbequistão": ["Tashkent", "Samarkand", "Namangan", "Andijan", "Nukus"],
+    "Vanuatu": ["Port Vila", "Luganville", "Norsup", "Sola", "Lamap"],
+    "Vaticano": ["Vaticano"],
+    "Venezuela": ["Caracas", "Maracaibo", "Valencia", "Barquisimeto", "Ciudad Guayana"],
+    "Vietnã": ["Hanói", "Ho Chi Minh", "Hai Phong", "Da Nang", "Can Tho"],
+    "Zâmbia": ["Lusaka", "Kitwe", "Ndola", "Kabwe", "Chingola"],
+    "Zimbábue": ["Harare", "Bulawayo", "Chitungwiza", "Mutare", "Gweru"]
 };
 
-// Function to populate cities based on selected country
+// Function to populate countries dropdown
+function popularPaises() {
+    const paisSelect = document.getElementById('pais');
+    
+    // Clear current options except the first one
+    paisSelect.innerHTML = '<option value="">Selecione um país</option>';
+    
+    // Get sorted list of countries
+    const paises = Object.keys(cidadesPorPais).sort();
+    
+    // Add countries to dropdown
+    paises.forEach(pais => {
+        const option = document.createElement('option');
+        option.value = pais;
+        option.textContent = pais;
+        paisSelect.appendChild(option);
+    });
+}
+
+// Function to populate cities based on selected country with search functionality
 function atualizarCidades() {
     const paisSelect = document.getElementById('pais');
     const cidadeSelect = document.getElementById('cidade');
@@ -46,6 +292,49 @@ function atualizarCidades() {
             option.textContent = cidade;
             cidadeSelect.appendChild(option);
         });
+    } else {
+        // Disable city select if no country selected
+        cidadeSelect.disabled = true;
+        cidadeSelect.innerHTML = '<option value="">Selecione primeiro um país</option>';
+    }
+}
+
+// Function to filter cities based on search input
+function filtrarCidades() {
+    const paisSelect = document.getElementById('pais');
+    const cidadeSelect = document.getElementById('cidade');
+    const cidadeSearch = document.getElementById('cidadeSearch');
+    const paisSelecionado = paisSelect.value;
+    const termoBusca = cidadeSearch.value.toLowerCase();
+    
+    // Clear current options
+    cidadeSelect.innerHTML = '<option value="">Selecione uma cidade</option>';
+    
+    if (paisSelecionado && cidadesPorPais[paisSelecionado]) {
+        // Enable city select
+        cidadeSelect.disabled = false;
+        
+        // Filter cities based on search term
+        const cidadesFiltradas = cidadesPorPais[paisSelecionado].filter(cidade => 
+            cidade.toLowerCase().includes(termoBusca)
+        );
+        
+        // Add filtered cities
+        cidadesFiltradas.forEach(cidade => {
+            const option = document.createElement('option');
+            option.value = cidade;
+            option.textContent = cidade;
+            cidadeSelect.appendChild(option);
+        });
+        
+        // If no cities found
+        if (cidadesFiltradas.length === 0) {
+            const option = document.createElement('option');
+            option.value = '';
+            option.textContent = 'Nenhuma cidade encontrada';
+            option.disabled = true;
+            cidadeSelect.appendChild(option);
+        }
     } else {
         // Disable city select if no country selected
         cidadeSelect.disabled = true;
@@ -297,6 +586,8 @@ function limparFormulario() {
     const cidadeSelect = document.getElementById('cidade');
     cidadeSelect.innerHTML = '<option value="">Selecione primeiro um país</option>';
     cidadeSelect.disabled = true;
+    // Clear city search
+    document.getElementById('cidadeSearch').value = '';
     // Clear any existing popup
     const popup = document.getElementById('popup-notification');
     if (popup) {
@@ -336,7 +627,14 @@ document.getElementById('telefone').addEventListener('input', function(e) {
 });
 
 // Add event listener for country selection
-document.getElementById('pais').addEventListener('change', atualizarCidades);
+document.getElementById('pais').addEventListener('change', function() {
+    atualizarCidades();
+    // Clear city search when country changes
+    document.getElementById('cidadeSearch').value = '';
+});
+
+// Add event listener for city search
+document.getElementById('cidadeSearch').addEventListener('input', filtrarCidades);
 
 // Handle form submission for both create and update
 document.getElementById('clientForm').addEventListener('submit', function(e) {
@@ -443,7 +741,7 @@ function exportarJSON() {
         metadata: {
             totalClientes: clientes.length,
             dataExportacao: new Date().toISOString(),
-            versao: '2.2.0'
+            versao: '2.3.0'
         },
         clientes: clientes
     };
@@ -464,3 +762,6 @@ function exportarJSON() {
 // Initialize the client list and statistics
 atualizarListaClientes();
 atualizarEstatisticas();
+
+// Populate countries dropdown when page loads
+popularPaises();
