@@ -168,7 +168,7 @@ const cidadesPorPais = {
     "Nauru": ["Yaren", "Anabar", "Anetan", "Anibare", "Baiti"],
     "Nepal": ["Catmandu", "Pokhara", "Lalitpur", "Biratnagar", "Bharatpur"],
     "Nicarágua": ["Manágua", "León", "Masaya", "Chinandega", "Matagalpa"],
-    "Níger": ["Niamey", "Zinder", "Maradi", "Agadez", "Tahoua"],
+    "Níger": ["Niamey", "Zinder", "Maradi", "Abéché", "Tahoua"],
     "Nigéria": ["Lagos", "Kano", "Ibadan", "Abuja", "Port Harcourt"],
     "Noruega": ["Oslo", "Bergen", "Trondheim", "Stavanger", "Drammen"],
     "Nova Zelândia": ["Auckland", "Wellington", "Christchurch", "Hamilton", "Tauranga"],
@@ -334,6 +334,11 @@ function filtrarCidades() {
             option.textContent = 'Nenhuma cidade encontrada';
             option.disabled = true;
             cidadeSelect.appendChild(option);
+        }
+        
+        // If there's only one city and it matches exactly, select it automatically
+        if (cidadesFiltradas.length === 1 && cidadesFiltradas[0].toLowerCase() === termoBusca) {
+            cidadeSelect.value = cidadesFiltradas[0];
         }
     } else {
         // Disable city select if no country selected
@@ -633,8 +638,12 @@ document.getElementById('pais').addEventListener('change', function() {
     document.getElementById('cidadeSearch').value = '';
 });
 
-// Add event listener for city search
-document.getElementById('cidadeSearch').addEventListener('input', filtrarCidades);
+// Add event listener for city search with debounce
+let cidadeSearchTimeout;
+document.getElementById('cidadeSearch').addEventListener('input', function() {
+    clearTimeout(cidadeSearchTimeout);
+    cidadeSearchTimeout = setTimeout(filtrarCidades, 300); // Debounce for 300ms
+});
 
 // Handle form submission for both create and update
 document.getElementById('clientForm').addEventListener('submit', function(e) {
