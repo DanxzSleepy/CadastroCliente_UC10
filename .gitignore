@@ -9,13 +9,5 @@ __pycache__/
 *.tmp
 *.bak
 
-# Documentation files not needed for professor review
+# Documentation files not needed 
 docs/VIDEO_GUIDE.md
-docs/KANBAN.md
-docs/RESUMO_v2.4.0.md
-docs/FINAL_SUMMARY.md
-docs/backlog.md
-docs/bugs_identificados.md
-docs/analise_tecnica.md
-docs/sprint_plan.md
-docs/changelog.md
