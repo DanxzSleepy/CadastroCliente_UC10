@@ -451,12 +451,10 @@ function atualizarEstatisticas() {
     const inativos = clientes.filter(cliente => cliente.status === 'inativo').length;
     const total = clientes.length;
     
-    const statsDiv = document.getElementById('clientStats');
-    statsDiv.innerHTML = `
-        <p><strong>Total:</strong> ${total} clientes | 
-        <strong>Ativos:</strong> ${ativos} | 
-        <strong>Inativos:</strong> ${inativos}</p>
-    `;
+    // Update the new statistics elements
+    document.getElementById('totalClients').textContent = total;
+    document.getElementById('activeClients').textContent = ativos;
+    document.getElementById('inactiveClients').textContent = inativos;
 }
 
 function atualizarListaClientes(lista = clientes) {
@@ -464,7 +462,7 @@ function atualizarListaClientes(lista = clientes) {
     container.innerHTML = '';
 
     if (lista.length === 0) {
-        container.innerHTML = '<p>Nenhum cliente encontrado.</p>';
+        container.innerHTML = '<div class="client-item"><p>Nenhum cliente encontrado.</p></div>';
         return;
     }
 
@@ -472,13 +470,36 @@ function atualizarListaClientes(lista = clientes) {
         const div = document.createElement('div');
         div.className = `client-item ${cliente.status}`;
         div.innerHTML = `
-            <strong>${cliente.nome}</strong> (${cliente.status === 'ativo' ? 'Ativo' : 'Inativo'})<br>
-            ${cliente.email} | ${cliente.telefone || 'Não informado'}<br>
-            ${cliente.pais} | ${cliente.cidade}<br>
-            CPF: ${cliente.cpf}<br>
-            <small>Cadastrado em: ${cliente.dataCadastro}</small>
-            <button onclick="editarCliente(${cliente.id})" style="background: #ffc107; margin-top: 5px;">Editar</button>
-            <button onclick="excluirCliente(${cliente.id})" style="background: #dc3545; margin-top: 5px;">Excluir</button>
+            <div class="client-name">${cliente.nome}</div>
+            <div class="client-details">
+                <div class="client-detail">
+                    <span class="status-badge ${cliente.status === 'ativo' ? 'active' : 'inactive'}">
+                        ${cliente.status === 'ativo' ? 'Ativo' : 'Inativo'}
+                    </span>
+                </div>
+                <div class="client-detail">
+                    ${cliente.email}
+                </div>
+                <div class="client-detail">
+                    ${cliente.telefone || 'Não informado'}
+                </div>
+                <div class="client-detail">
+                    ${cliente.pais}
+                </div>
+                <div class="client-detail">
+                    ${cliente.cidade}
+                </div>
+                <div class="client-detail">
+                    CPF: ${cliente.cpf}
+                </div>
+                <div class="client-detail">
+                    <small>Cadastrado em: ${cliente.dataCadastro}</small>
+                </div>
+            </div>
+            <div class="client-actions">
+                <button onclick="editarCliente(${cliente.id})" class="btn btn-warning btn-sm">Editar</button>
+                <button onclick="excluirCliente(${cliente.id})" class="btn btn-danger btn-sm">Excluir</button>
+            </div>
         `;
         container.appendChild(div);
     });
