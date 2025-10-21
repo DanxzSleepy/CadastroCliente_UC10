@@ -24,6 +24,7 @@
 ### Documentação de testes
 - Atualização abrangente do documento de testes com cobertura completa
 - Adição de testes de validação, performance, compatibilidade, usabilidade, segurança e mais
+- Criação de documentação para a Aula 2 - Classificação de Falhas e Testes Unitários
 
 ## [v2.4.0] - Aprimoramento visual e melhoria na pesquisa de cidades - 2025-10-21
 ### Aprimoramentos visuais
