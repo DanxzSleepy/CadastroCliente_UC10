@@ -21,6 +21,10 @@
 - Atualização do .gitignore para excluir arquivos de documentação não essenciais
 - Remoção do tracking de arquivos não necessários para avaliação do professor
 
+### Documentação de testes
+- Atualização abrangente do documento de testes com cobertura completa
+- Adição de testes de validação, performance, compatibilidade, usabilidade, segurança e mais
+
 ## [v2.4.0] - Aprimoramento visual e melhoria na pesquisa de cidades - 2025-10-21
 ### Aprimoramentos visuais
 - Redesign completo da interface com estilos mais simples e clean
