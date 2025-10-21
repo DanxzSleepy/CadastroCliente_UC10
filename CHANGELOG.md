@@ -17,6 +17,10 @@
 - Ícones e espaçamento aprimorados
 - Scroll personalizado para listas longas
 
+### Organização do repositório
+- Atualização do .gitignore para excluir arquivos de documentação não essenciais
+- Remoção do tracking de arquivos não necessários para avaliação do professor
+
 ## [v2.4.0] - Aprimoramento visual e melhoria na pesquisa de cidades - 2025-10-21
 ### Aprimoramentos visuais
 - Redesign completo da interface com estilos mais simples e clean
