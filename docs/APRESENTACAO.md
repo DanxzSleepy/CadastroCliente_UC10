@@ -1,95 +1,115 @@
-# 🎓 Apresentação Final - Sistema de Cadastro de Clientes
+# Apresentacao Final - Sistema de Cadastro de Clientes
 
-## 📋 Visão Geral do Projeto
+## Visao Geral do Projeto
 
-O Sistema de Cadastro de Clientes é uma aplicação web completa desenvolvida com tecnologias frontend modernas (HTML5, CSS3 e JavaScript ES6) que permite o gerenciamento eficiente de informações de clientes. O projeto foi desenvolvido seguindo a metodologia Scrum com versionamento completo e documentação detalhada.
+O Sistema de Cadastro de Clientes e uma aplicacao web completa desenvolvida com tecnologias frontend modernas (HTML5, CSS3 e JavaScript ES6) que permite o gerenciamento eficiente de informacoes de clientes. O projeto foi desenvolvido seguindo a metodologia Scrum com versionamento completo e documentacao detalhada.
 
-## 🚀 Versões Desenvolvidas
+## Versoes Desenvolvidas
 
-### v1.0.0 - Análise Inicial e Documentação Base
-- Análise completa do código existente
-- Identificação de bugs e más práticas
-- Criação da documentação base do projeto
-- Configuração do repositório Git
+### v1.0.0 - Analise Inicial e Documentacao Base
+- Analise completa do codigo existente
+- Identificacao de bugs e mas praticas
+- Criacao da documentacao base do projeto
+- Configuracao do repositorio Git
 
-### v1.1.0 - Correção de Bugs e Refatoração
-- Implementação completa da validação de CPF com algoritmo oficial
-- Correção da verificação de cliente existente (prevenção de duplicatas)
-- Validação aprimorada de e-mail com expressão regular
-- Persistência de dados com localStorage
-- Separação do código em arquivos distintos (HTML, CSS, JS)
-- Adição de confirmação antes de excluir cliente
-- Implementação de máscaras automáticas para CPF e telefone
-- Correção da funcionalidade de edição para atualizar dados reais
+### v1.1.0 - Correcao de Bugs e Refatoracao
+- Implementacao completa da validacao de CPF com algoritmo oficial
+- Correcao da verificacao de cliente existente (prevencao de duplicatas)
+- Validacao aprimorada de e-mail com expressao regular
+- Persistencia de dados com localStorage
+- Separacao do codigo em arquivos distintos (HTML, CSS, JS)
+- Adicao de confirmacao antes de excluir cliente
+- Implementacao de mascaras automaticas para CPF e telefone
+- Correcao da funcionalidade de edicao para atualizar dados reais
 
-### v2.0.0 - Implementação de Novas Funcionalidades
+### v2.0.0 - Implementacao de Novas Funcionalidades
 - Busca e filtro de clientes por nome, e-mail, CPF ou status
-- Exportação de lista de clientes para formatos CSV e JSON
-- Contador de clientes ativos/inativos com estatísticas em tempo real
+- Exportacao de lista de clientes para formatos CSV e JSON
+- Contador de clientes ativos/inativos com estatisticas em tempo real
 - Interface aprimorada com feedback visual e indicadores de status
 
-### v2.1.0 - Aprimoramentos Finais e Preparação para Apresentação
-- Implementação de sistema de notificações popup
-- Criação de confirmação de exclusão personalizada
-- Aprimoramento da experiência do usuário
-- Documentação final completa
-- Preparação dos guias para gravação de vídeos
+### v2.1.0 - Aprimoramentos Finais e Preparacao para Apresentacao
+- Implementacao de sistema de notificacoes popup
+- Criacao de confirmacao de exclusao personalizada
+- Aprimoramento da experiencia do usuario
+- Documentacao final completa
+- Preparacao dos guias para gravacao de videos
 
-## 🎯 Funcionalidades Principais
+### v2.2.0 - Adicao da Selecao Dinamica de Pais/Cidade
+- Adicao de campo obrigatorio para selecao de pais
+- Implementacao de selecao dinamica de cidades baseada no pais escolhido
+- Base de dados com cidades de todos os paises
 
-1. **Cadastro Completo de Clientes**
-   - Validação de CPF com algoritmo oficial
-   - Validação de e-mail com expressão regular
-   - Máscaras automáticas para CPF e telefone
-   - Campos obrigatórios e opcionais claramente identificados
+### v2.3.0 - Adicao da Pesquisa de Cidades
+- Expansao da base de dados para incluir mais de 150 paises
+- Adicao de listas completas de cidades para todos os paises
+- Implementacao de campo de pesquisa para facilitar a selecao de cidades
 
-2. **Gerenciamento de Clientes**
-   - Visualização da lista completa de clientes
-   - Edição de informações de clientes existentes
-   - Exclusão de clientes com confirmação
+### v2.4.0 - Aprimoramento Visual e Melhorias de Performance
+- Redesign completo da interface com estilos mais simples e clean
+- Implementacao de debounce na pesquisa de cidades para melhor performance
+- Remocao de efeitos excessivos para uma experiencia mais tranquila
+
+## Funcionalidades Principais
+
+1. Cadastro Completo de Clientes
+   - Validacao de CPF com algoritmo oficial
+   - Validacao de e-mail com expressao regular
+   - Mascaras automaticas para CPF e telefone
+   - Campos obrigatorios e opcionais claramente identificados
+
+2. Gerenciamento de Clientes
+   - Visualizacao da lista completa de clientes
+   - Edicao de informacoes de clientes existentes
+   - Exclusao de clientes com confirmacao
    - Indicadores visuais de status (ativo/inativo)
 
-3. **Busca e Filtragem**
+3. Busca e Filtragem
    - Pesquisa por nome, e-mail ou CPF
    - Filtro por status (ativo/inativo/todos)
    - Resultados em tempo real
 
-4. **Estatísticas e Métricas**
+4. Estatisticas e Metricas
    - Contador de clientes ativos/inativos
    - Total de clientes cadastrados
-   - Atualização automática em tempo real
+   - Atualizacao automatica em tempo real
 
-5. **Exportação de Dados**
-   - Exportação para formato CSV
-   - Exportação para formato JSON com metadados
+5. Exportacao de Dados
+   - Exportacao para formato CSV
+   - Exportacao para formato JSON com metadados
 
-6. **Persistência de Dados**
+6. Persistencia de Dados
    - Armazenamento local com localStorage
-   - Dados mantidos entre sessões
+   - Dados mantidos entre sessoes
 
-## 🛠️ Processo de Desenvolvimento
+7. Selecao de Localizacao
+   - Selecao de pais em lista suspensa com mais de 150 opcoes
+   - Selecao dinamica de cidades baseada no pais escolhido
+   - Pesquisa de cidades para facilitar a selecao
+
+## Processo de Desenvolvimento
 
 ### Metodologia Scrum
-O projeto foi desenvolvido seguindo a metodologia Scrum com as seguintes características:
-- **Sprints simuladas** de 1 semana de duração
-- **Backlog priorizado** com estimativas de pontos
-- **Planejamento detalhado** de cada sprint
-- **Kanban board** para acompanhamento de tarefas
-- **Documentação contínua** de todas as etapas
+O projeto foi desenvolvido seguindo a metodologia Scrum com as seguintes caracteristicas:
+- Sprints simuladas de 1 semana de duracao
+- Backlog priorizado com estimativas de pontos
+- Planejamento detalhado de cada sprint
+- Kanban board para acompanhamento de tarefas
+- Documentacao continua de todas as etapas
 
-### Controle de Versão
-- Versionamento semântico (v1.0.0, v1.1.0, v2.0.0, v2.1.0)
+### Controle de Versao
+- Versionamento semantico (v1.0.0, v1.1.0, v2.0.0, v2.1.0, v2.2.0, v2.3.0, v2.4.0)
 - Commits descritivos e organizados
-- Push regular para repositório remoto
-- Documentação de changelog completo
+- Push regular para repositorio remoto
+- Documentacao de changelog completo
 
-### Qualidade de Código
-- Separação de responsabilidades (HTML, CSS, JavaScript)
-- Funções bem definidas e documentadas
-- Validações robustas de entrada de dados
-- Tratamento adequado de erros e exceções
+### Qualidade de Codigo
+- Separacao de responsabilidades (HTML, CSS, JavaScript)
+- Funcoes bem definidas e documentadas
+- Validacoes robustas de entrada de dados
+- Tratamento adequado de erros e excecoes
 
-## 📊 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 .
@@ -98,73 +118,73 @@ O projeto foi desenvolvido seguindo a metodologia Scrum com as seguintes caracte
 │   ├── html/              # Arquivo HTML separado
 │   ├── css/               # Arquivo CSS separado
 │   └── js/                # Arquivo JavaScript separado
-├── docs/                  # Documentação completa
-├── README.md              # Documentação principal
-├── CHANGELOG.md           # Histórico de versões
+├── docs/                  # Documentacao completa
+├── README.md              # Documentacao principal
+├── CHANGELOG.md           # Historico de versoes
 ├── BACKLOG.md             # Lista de melhorias pendentes
-├── LICENSE.md             # Licença do projeto
+├── LICENSE.md             # Licenca do projeto
 └── .gitignore             # Arquivos ignorados pelo Git
 ```
 
-## 🎥 Guias para Gravação de Vídeos
+## Guias para Gravacao de Videos
 
-### Vídeo 1 - Sistema Original (v1.0.0)
-1. Apresentar o código original e seus problemas
-2. Mostrar a documentação inicial criada
+### Video 1 - Sistema Original (v1.0.0)
+1. Apresentar o codigo original e seus problemas
+2. Mostrar a documentacao inicial criada
 3. Explicar os bugs identificados
 
-### Vídeo 2 - Implementação Intermediária (v1.1.0)
-1. Demonstrar as correções de bugs implementadas
-2. Mostrar a refatoração do código
+### Video 2 - Implementacao Intermediaria (v1.1.0)
+1. Demonstrar as correcoes de bugs implementadas
+2. Mostrar a refatoracao do codigo
 3. Testar as funcionalidades corrigidas
 
-### Vídeo 3 - Sistema Completo (v2.0.0)
+### Video 3 - Sistema Completo (v2.0.0)
 1. Apresentar as novas funcionalidades
 2. Demonstrar a busca e filtragem
-3. Mostrar a exportação de dados
-4. Exibir as estatísticas em tempo real
-5. Testar a persistência de dados
+3. Mostrar a exportacao de dados
+4. Exibir as estatisticas em tempo real
+5. Testar a persistencia de dados
 
-## 🏆 Lições Aprendidas
+## Licoes Aprendidas
 
-1. **Importância da Validação de Dados**
-   - Validações robustas são essenciais para a integridade dos dados
-   - CPF e e-mail requerem algoritmos específicos para validação correta
+1. Importancia da Validacao de Dados
+   - Validacoes robustas sao essenciais para a integridade dos dados
+   - CPF e e-mail requerem algoritmos especificos para validacao correta
 
-2. **Separação de Responsabilidades**
-   - Código organizado em arquivos distintos facilita manutenção
-   - Melhor divisão de lógica de apresentação e negócio
+2. Separacao de Responsabilidades
+   - Codigo organizado em arquivos distintos facilita manutencao
+   - Melhor divisao de logica de apresentacao e negocio
 
-3. **Persistência de Dados**
-   - localStorage é uma solução simples e eficaz para aplicações frontend
-   - Dados persistentes melhoram significativamente a experiência do usuário
+3. Persistencia de Dados
+   - localStorage e uma solucao simples e eficaz para aplicacoes frontend
+   - Dados persistentes melhoram significativamente a experiencia do usuario
 
-4. **Experiência do Usuário**
-   - Feedback visual imediato é crucial para uma boa UX
-   - Confirmações antes de ações destrutivas previnem erros
+4. Experiencia do Usuario
+   - Feedback visual imediato e crucial para uma boa UX
+   - Confirmacoes antes de acoes destrutivas previnem erros
 
-5. **Metodologia Scrum**
-   - Sprints curtas mantêm o foco e permitem entregas incrementais
-   - Documentação contínua é essencial para projetos colaborativos
+5. Metodologia Scrum
+   - Sprints curtas mantem o foco e permitem entregas incrementais
+   - Documentacao continua e essencial para projetos colaborativos
 
-## 🚀 Próximos Passos
+## Proximos Passos
 
-1. **Implementação de Backend**
+1. Implementacao de Backend
    - Desenvolver API REST para gerenciamento de clientes
-   - Integração com banco de dados relacional
+   - Integracao com banco de dados relacional
 
-2. **Autenticação e Autorização**
+2. Autenticacao e Autorizacao
    - Sistema de login completo
-   - Perfis de usuário e permissões
+   - Perfis de usuario e permissoes
 
-3. **Testes Automatizados**
-   - Implementação de testes unitários e de integração
-   - Configuração de CI/CD
+3. Testes Automatizados
+   - Implementacao de testes unitarios e de integracao
+   - Configuracao de CI/CD
 
-4. **Melhorias na Interface**
-   - Implementação de framework frontend (React, Vue.js)
+4. Melhorias na Interface
+   - Implementacao de framework frontend (React, Vue.js)
    - Design responsivo aprimorado
 
-## 📞 Contato
+## Contato
 
-Desenvolvido por Danilo Ícaro Alves Santos como parte do currículo da disciplina de Tecnologia em Desenvolvimento de Sistemas.
+Desenvolvido por Danilo Icaro Alves Santos como parte do curriculo da disciplina de Tecnologia em Desenvolvimento de Sistemas.

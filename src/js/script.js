@@ -472,13 +472,13 @@ function atualizarListaClientes(lista = clientes) {
         const div = document.createElement('div');
         div.className = `client-item ${cliente.status}`;
         div.innerHTML = `
-            <strong>${cliente.nome}</strong> (${cliente.status === 'ativo' ? '✅ Ativo' : '❌ Inativo'})<br>
-            📧 ${cliente.email} | 📞 ${cliente.telefone || 'Não informado'}<br>
-            🌍 ${cliente.pais} | 🏙️ ${cliente.cidade}<br>
-            🆔 CPF: ${cliente.cpf}<br>
+            <strong>${cliente.nome}</strong> (${cliente.status === 'ativo' ? 'Ativo' : 'Inativo'})<br>
+            ${cliente.email} | ${cliente.telefone || 'Não informado'}<br>
+            ${cliente.pais} | ${cliente.cidade}<br>
+            CPF: ${cliente.cpf}<br>
             <small>Cadastrado em: ${cliente.dataCadastro}</small>
-            <button onclick="editarCliente(${cliente.id})" style="background: #ffc107; margin-top: 5px;">✏️ Editar</button>
-            <button onclick="excluirCliente(${cliente.id})" style="background: #dc3545; margin-top: 5px;">🗑️ Excluir</button>
+            <button onclick="editarCliente(${cliente.id})" style="background: #ffc107; margin-top: 5px;">Editar</button>
+            <button onclick="excluirCliente(${cliente.id})" style="background: #dc3545; margin-top: 5px;">Excluir</button>
         `;
         container.appendChild(div);
     });
@@ -534,7 +534,7 @@ function editarCliente(id) {
         }, 100);
         
         document.getElementById('status').value = cliente.status;
-        createPopup('⚠️ Modo edição - Atualize os dados e clique em "Cadastrar Cliente"', 'info');
+        createPopup('Modo edição - Atualize os dados e clique em "Cadastrar Cliente"', 'info');
     }
 }
 
@@ -543,13 +543,25 @@ function atualizarCliente(id, dados) {
     if (index !== -1) {
         clientes[index] = { ...dados, id: id };
         salvarClientes();
-        atualizarListaClientes();
+        createPopup('Cliente atualizado com sucesso!', 'success');
         limparFormulario();
-        createPopup('✅ Cliente atualizado com sucesso!', 'success');
+        atualizarListaClientes();
     }
 }
 
 function excluirCliente(id) {
+    // Show custom confirmation popup
+    showConfirmPopup('Tem certeza que deseja excluir este cliente?', () => {
+        clientes = clientes.filter(cliente => cliente.id !== id);
+        salvarClientes();
+        createPopup('Cliente excluído!', 'success');
+        atualizarListaClientes();
+        atualizarEstatisticas();
+    });
+}
+
+// Function to show custom confirmation popup
+function showConfirmPopup(message, callback) {
     // Create custom confirmation popup
     const popup = document.createElement('div');
     popup.id = 'confirm-popup';
@@ -557,26 +569,15 @@ function excluirCliente(id) {
     popup.innerHTML = `
         <div class="confirm-content">
             <h3>Confirmação</h3>
-            <p>Tem certeza que deseja excluir este cliente?</p>
+            <p>${message}</p>
             <div class="confirm-buttons">
-                <button onclick="confirmDelete(${id})" class="btn-confirm">Sim</button>
+                <button onclick="${callback.name}()" class="btn-confirm">Sim</button>
                 <button onclick="cancelDelete()" class="btn-cancel">Não</button>
             </div>
         </div>
     `;
     
     document.body.appendChild(popup);
-}
-
-function confirmDelete(id) {
-    // Remove confirmation popup
-    document.getElementById('confirm-popup').remove();
-    
-    // Delete client
-    clientes = clientes.filter(cliente => cliente.id !== id);
-    salvarClientes();
-    createPopup('🗑️ Cliente excluído!', 'success');
-    atualizarListaClientes();
 }
 
 function cancelDelete() {
@@ -648,85 +649,124 @@ document.getElementById('cidadeSearch').addEventListener('input', function() {
 // Handle form submission for both create and update
 document.getElementById('clientForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    const id = document.getElementById('clientId').value;
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const cpf = document.getElementById('cpf').value;
-    const telefone = document.getElementById('telefone').value;
-    const pais = document.getElementById('pais').value;
-    const cidade = document.getElementById('cidade').value;
-    const status = document.getElementById('status').value;
 
-    if (!nome) {
-        createPopup('❌ Por favor, preencha o nome!', 'error');
-        return;
-    }
-
-    if (!pais) {
-        createPopup('❌ Por favor, selecione um país!', 'error');
-        return;
-    }
-
-    if (!cidade) {
-        createPopup('❌ Por favor, selecione uma cidade!', 'error');
-        return;
-    }
-
-    if (!validarEmail(email)) {
-        createPopup('❌ E-mail inválido!', 'error');
-        return;
-    }
-
-    if (!validarCPF(cpf)) {
-        createPopup('❌ CPF inválido!', 'error');
-        return;
-    }
-
-    // Check for duplicates only when creating new client
-    if (!id && verificarClienteExistente(email, cpf)) {
-        createPopup('❌ Cliente já cadastrado!', 'error');
+    if (!validarFormulario()) {
         return;
     }
 
     const cliente = {
-        nome: nome,
-        email: email,
-        cpf: cpf,
-        telefone: telefone,
-        pais: pais,
-        cidade: cidade,
-        status: status,
-        dataCadastro: new Date().toLocaleDateString()
+        id: Date.now(), // Temporary ID, will be replaced
+        nome: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        cpf: document.getElementById('cpf').value,
+        telefone: document.getElementById('telefone').value,
+        pais: document.getElementById('pais').value,
+        cidade: document.getElementById('cidade').value,
+        status: document.getElementById('status').value,
+        dataCadastro: new Date().toLocaleString('pt-BR')
     };
 
-    if (id) {
+    const clientId = document.getElementById('clientId').value;
+    if (clientId) {
         // Update existing client
-        atualizarCliente(parseInt(id), cliente);
+        atualizarCliente(parseInt(clientId), cliente);
     } else {
-        // Create new client
+        // Add new client
         cliente.id = nextId++;
         clientes.push(cliente);
         salvarClientes();
-        createPopup('✅ Cliente cadastrado com sucesso!', 'success');
+        createPopup('Cliente cadastrado com sucesso!', 'success');
         limparFormulario();
+        atualizarListaClientes();
     }
-    
-    atualizarListaClientes();
 });
 
-// Export functions
-function exportarCSV() {
-    if (clientes.length === 0) {
-        createPopup('❌ Nenhum cliente para exportar!', 'error');
+function validarFormulario() {
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const cpf = document.getElementById('cpf').value.trim();
+    const pais = document.getElementById('pais').value;
+    const cidade = document.getElementById('cidade').value;
+
+    if (!nome) {
+        createPopup('Por favor, preencha o nome!', 'error');
+        return false;
+    }
+
+    if (!pais) {
+        createPopup('Por favor, selecione um país!', 'error');
+        return false;
+    }
+
+    if (!cidade) {
+        createPopup('Por favor, selecione uma cidade!', 'error');
+        return false;
+    }
+
+    if (!validarEmail(email)) {
+        createPopup('E-mail inválido!', 'error');
+        return false;
+    }
+
+    if (!validarCPF(cpf)) {
+        createPopup('CPF inválido!', 'error');
+        return false;
+    }
+
+    const clientId = document.getElementById('clientId').value;
+    if (verificarClienteExistente(email, cpf) && !clientId) {
+        createPopup('Cliente já cadastrado!', 'error');
+        return false;
+    }
+
+    return true;
+}
+
+function cadastrarCliente(event) {
+    event.preventDefault();
+
+    if (!validarFormulario()) {
         return;
     }
-    
-    let csv = 'ID,Nome,E-mail,CPF,Telefone,País,Cidade,Status,DataCadastro\n';
+
+    const cliente = {
+        id: Date.now(), // Temporary ID, will be replaced
+        nome: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        cpf: document.getElementById('cpf').value,
+        telefone: document.getElementById('telefone').value,
+        pais: document.getElementById('pais').value,
+        cidade: document.getElementById('cidade').value,
+        status: document.getElementById('status').value,
+        dataCadastro: new Date().toLocaleString('pt-BR')
+    };
+
+    const clientId = document.getElementById('clientId').value;
+    if (clientId) {
+        // Update existing client
+        atualizarCliente(parseInt(clientId), cliente);
+    } else {
+        // Add new client
+        cliente.id = nextId++;
+        clientes.push(cliente);
+        salvarClientes();
+        createPopup('Cliente cadastrado com sucesso!', 'success');
+        limparFormulario();
+        atualizarListaClientes();
+    }
+}
+
+function exportarCSV() {
+    if (clientes.length === 0) {
+        createPopup('Nenhum cliente para exportar!', 'error');
+        return;
+    }
+
+    let csv = 'Nome,E-mail,CPF,Telefone,País,Cidade,Status,Data de Cadastro\n';
     clientes.forEach(cliente => {
-        csv += `"${cliente.id}","${cliente.nome}","${cliente.email}","${cliente.cpf}","${cliente.telefone || ''}","${cliente.pais}","${cliente.cidade}","${cliente.status}","${cliente.dataCadastro}"\n`;
+        csv += `"${cliente.nome}","${cliente.email}","${cliente.cpf}","${cliente.telefone}","${cliente.pais}","${cliente.cidade}","${cliente.status}","${cliente.dataCadastro}"\n`;
     });
-    
+
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     const url = URL.createObjectURL(blob);
@@ -737,24 +777,24 @@ function exportarCSV() {
     link.click();
     document.body.removeChild(link);
     
-    createPopup('✅ Lista de clientes exportada com sucesso!', 'success');
+    createPopup('Lista de clientes exportada com sucesso!', 'success');
 }
 
 function exportarJSON() {
     if (clientes.length === 0) {
-        createPopup('❌ Nenhum cliente para exportar!', 'error');
+        createPopup('Nenhum cliente para exportar!', 'error');
         return;
     }
-    
+
     const data = {
         metadata: {
             totalClientes: clientes.length,
-            dataExportacao: new Date().toISOString(),
-            versao: '2.3.0'
+            dataExportacao: new Date().toLocaleString('pt-BR'),
+            versao: '2.4.0'
         },
         clientes: clientes
     };
-    
+
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8;' });
     const link = document.createElement('a');
     const url = URL.createObjectURL(blob);
@@ -765,12 +805,5 @@ function exportarJSON() {
     link.click();
     document.body.removeChild(link);
     
-    createPopup('✅ Lista de clientes exportada com sucesso!', 'success');
+    createPopup('Lista de clientes exportada com sucesso!', 'success');
 }
-
-// Initialize the client list and statistics
-atualizarListaClientes();
-atualizarEstatisticas();
-
-// Populate countries dropdown when page loads
-popularPaises();

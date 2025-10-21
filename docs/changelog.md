@@ -1,106 +1,106 @@
-# 📋 Changelog - Sistema de Cadastro de Clientes
+# Changelog - Sistema de Cadastro de Clientes
 
 ## [v2.4.0] - Aprimoramento visual do sistema e melhoria na pesquisa de cidades - 2025-10-16
-### 🎨 Aprimoramentos visuais
-- Redesign completo da interface com gradientes e efeitos modernos
+### Aprimoramentos visuais
+- Redesign completo da interface com estilos mais simples e clean
 - Aprimoramento dos estilos CSS para todos os elementos do sistema
-- Adição de animações e transições suaves para melhor experiência do usuário
-- Melhoria na aparência dos botões, campos de formulário e cards
-- Atualização da paleta de cores com tons roxos e gradientes suaves
+- Remocao de efeitos excessivos para uma experiencia mais tranquila
+- Melhoria na aparência dos botões, campos de formulario e cards
+- Atualizacao da paleta de cores com tons mais suaves e profissionais
 
-### 🔍 Melhorias na pesquisa de cidades
-- Implementação de debounce na pesquisa de cidades para melhor performance
-- Melhoria na experiência do usuário ao pesquisar cidades
-- Atualização do placeholder do campo de pesquisa com instruções mais claras
-- Otimização do filtro de cidades com melhor feedback visual
+### Melhorias na pesquisa de cidades
+- Implementacao de debounce na pesquisa de cidades para melhor performance
+- Melhoria na experiencia do usuario ao pesquisar cidades
+- Atualizacao do placeholder do campo de pesquisa com instrucoes mais claras
+- Otimizacao do filtro de cidades com melhor feedback visual
 
-## [v2.3.0] - Adição da pesquisa de cidades e expansão da base de países/cidades - 2025-10-16
-### 🌍 Novas funcionalidades
-- Expansão da base de dados para incluir mais de 150 países
-- Adição de listas completas de cidades para todos os países (média de 5-20 cidades por país)
-- Implementação de campo de pesquisa para facilitar a seleção de cidades
-- População automática do dropdown de países com todos os países disponíveis
+## [v2.3.0] - Adicao da pesquisa de cidades e expansao da base de paises/cidades - 2025-10-16
+### Novas funcionalidades
+- Expansao da base de dados para incluir mais de 150 paises
+- Adicao de listas completas de cidades para todos os paises (media de 5-20 cidades por pais)
+- Implementacao de campo de pesquisa para facilitar a selecao de cidades
+- Populacao automatica do dropdown de paises com todos os paises disponiveis
 
-### 🎨 Melhorias na interface
-- Adição de campo de texto para pesquisa de cidades
-- Atualização do formulário com novo campo de pesquisa
+### Melhorias na interface
+- Adicao de campo de texto para pesquisa de cidades
+- Atualizacao do formulario com novo campo de pesquisa
 - Melhorias nos estilos CSS para os novos elementos
 - Mensagens de ajuda aprimoradas para os novos campos
 
-## [v2.2.0] - Adição da seleção dinâmica de país/cidade - 2025-10-16
-### 🌍 Novas funcionalidades
-- Adição de campo obrigatório para seleção de país
-- Implementação de seleção dinâmica de cidades baseada no país escolhido
-- Base de dados com cidades de 5 países diferentes (Brasil, Portugal, EUA, Argentina e Espanha)
-- Validação de campos país e cidade como obrigatórios
+## [v2.2.0] - Adicao da selecao dinamica de pais/cidade - 2025-10-16
+### Novas funcionalidades
+- Adicao de campo obrigatorio para selecao de pais
+- Implementacao de selecao dinamica de cidades baseada no pais escolhido
+- Base de dados com cidades de 5 paises diferentes (Brasil, Portugal, EUA, Argentina e Espanha)
+- Validacao de campos pais e cidade como obrigatorios
 
-### 🎨 Melhorias na interface
-- Atualização do formulário de cadastro com novos campos
+### Melhorias na interface
+- Atualizacao do formulario de cadastro com novos campos
 - Melhorias nos estilos CSS para os novos elementos
 - Mensagens de ajuda aprimoradas para os novos campos
 
-## [v2.1.0] - Preparação final para apresentação - 2025-10-16
-### 🎨 Aprimoramentos na interface
-- Implementação de sistema de notificações popup para melhor feedback ao usuário
-- Criação de confirmação de exclusão personalizada em popup
-- Aprimoramento da experiência do usuário com mensagens mais visuais
-- Remoção das notificações antigas baseadas em alert
+## [v2.1.0] - Preparacao final para apresentacao - 2025-10-16
+### Aprimoramentos na interface
+- Implementacao de sistema de notificacoes popup para melhor feedback ao usuario
+- Criacao de confirmacao de exclusao personalizada em popup
+- Aprimoramento da experiencia do usuario com mensagens mais visuais
+- Remocao das notificacoes antigas baseadas em alert
 
-### 📋 Documentação final
-- Criação de documentação final de apresentação em `docs/APRESENTACAO.md`
-- Criação de guia para gravação de vídeos em `docs/VIDEO_GUIDE.md`
-- Atualização de todas as documentações existentes
+### Documentacao final
+- Criacao de documentacao final de apresentacao em `docs/APRESENTACAO.md`
+- Criacao de guia para gravacao de videos em `docs/VIDEO_GUIDE.md`
+- Atualizacao de todas as documentacoes existentes
 
-## [v2.0.0] - Implementação de novas funcionalidades - 2025-10-16
-### 🚀 Novas funcionalidades
-- Implementação de busca e filtro de clientes por nome, e-mail, CPF ou status
-- Adição de exportação de lista de clientes para formatos CSV e JSON
-- Criação de contador de clientes ativos/inativos com estatísticas em tempo real
+## [v2.0.0] - Implementacao de novas funcionalidades - 2025-10-16
+### Novas funcionalidades
+- Implementacao de busca e filtro de clientes por nome, e-mail, CPF ou status
+- Adicao de exportacao de lista de clientes para formatos CSV e JSON
+- Criacao de contador de clientes ativos/inativos com estatisticas em tempo real
 - Aprimoramento da interface com feedback visual e indicadores de status
-- Adição de seção de estatísticas com contagem de clientes
+- Adicao de secao de estatisticas com contagem de clientes
 
-### 🎨 Melhorias na interface
-- Nova seção de busca e filtragem
+### Melhorias na interface
+- Nova secao de busca e filtragem
 - Indicadores visuais de status (borda colorida para clientes ativos/inativos)
-- Seção de estatísticas com contadores em tempo real
-- Botões de exportação
-- Melhorias nos estilos CSS para melhor experiência do usuário
+- Secao de estatisticas com contadores em tempo real
+- Botoes de exportacao
+- Melhorias nos estilos CSS para melhor experiencia do usuario
 
-## [v1.1.0] - Correção de bugs e refatoração - 2025-10-16
-### 🛠️ Correções de bugs
-- Implementação completa da validação de CPF com algoritmo oficial
-- Correção da verificação de cliente existente (previne duplicatas)
-- Validação aprimorada de e-mail com expressão regular
-- Correção da funcionalidade de edição para atualizar dados reais
-- Implementação de persistência de dados com localStorage
-- Adição de confirmação antes de excluir cliente
-- Implementação de máscaras automáticas para CPF e telefone
+## [v1.1.0] - Correcao de bugs e refatoracao - 2025-10-16
+### Correcoes de bugs
+- Implementacao completa da validacao de CPF com algoritmo oficial
+- Correcao da verificacao de cliente existente (previne duplicatas)
+- Validacao aprimorada de e-mail com expressao regular
+- Correcao da funcionalidade de edicao para atualizar dados reais
+- Implementacao de persistencia de dados com localStorage
+- Adicao de confirmacao antes de excluir cliente
+- Implementacao de mascaras automaticas para CPF e telefone
 
-### 📁 Reorganização do projeto
-- Separação do código em arquivos distintos:
+### Reorganizacao do projeto
+- Separacao do codigo em arquivos distintos:
   - HTML em `src/html/index.html`
   - CSS em `src/css/styles.css`
   - JavaScript em `src/js/script.js`
-- Manutenção do arquivo principal `index.html` na raiz para acesso direto
+- Manutencao do arquivo principal `index.html` na raiz para acesso direto
 
-### 🧪 Testes
-- Criação de documentação de testes em `docs/TESTES.md`
-- Validação de todas as correções implementadas
+### Testes
+- Criacao de documentacao de testes em `docs/TESTES.md`
+- Validacao de todas as correcoes implementadas
 
-## [v1.0.0] - Análise inicial e documentação base - 2025-10-16
-### 📦 Versão inicial
-- Versão base do sistema de cadastro de clientes
+## [v1.0.0] - Analise inicial e documentacao base - 2025-10-16
+### Versao inicial
+- Versao base do sistema de cadastro de clientes
 - Funcionalidades principais:
   - Cadastro de clientes com nome, e-mail, CPF, telefone, cidade e status
-  - Visualização da lista de clientes
-  - Edição e exclusão de clientes
-  - Validações básicas de campos obrigatórios
+  - Visualizacao da lista de clientes
+  - Edicao e exclusao de clientes
+  - Validacoes basicas de campos obrigatorios
 
-### 🐛 Problemas conhecidos nesta versão
-- Função de validação de CPF incompleta
-- Função de verificação de cliente existente não implementada
-- Validação de e-mail básica
-- Edição de cliente não atualiza os dados, apenas preenche o formulário
-- Dados não persistem após recarregar a página
-- Sem máscaras para formatação de CPF e telefone
-- Sem confirmação ao excluir cliente
+### Problemas conhecidos nesta versao
+- Funcao de validacao de CPF incompleta
+- Funcao de verificacao de cliente existente nao implementada
+- Validacao de e-mail basica
+- Edicao de cliente nao atualiza os dados, apenas preenche o formulario
+- Dados nao persistem apos recarregar a pagina
+- Sem mascaras para formatacao de CPF e telefone
+- Sem confirmacao ao excluir cliente

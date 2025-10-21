@@ -3,7 +3,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+    background-color: #f8f9fa;
     position: relative;
     min-height: 100vh;
 }
@@ -11,10 +11,8 @@ body {
 .container {
     background: white;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -27,26 +25,22 @@ label {
     font-weight: 600;
     color: #333;
     font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 input, select {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
-    transition: all 0.3s ease;
-    background: #fafafa;
+    background: #fff;
 }
 
 input:focus, select:focus {
     outline: none;
-    border-color: #8a2be2;
-    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
-    background: white;
+    border-color: #6c757d;
+    box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.1);
 }
 
 input:hover, select:hover {
@@ -54,36 +48,27 @@ input:hover, select:hover {
 }
 
 button {
-    background: linear-gradient(135deg, #8a2be2 0%, #4a0080 100%);
+    background: #6c757d;
     color: white;
     padding: 12px 25px;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
     margin-top: 5px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(138, 43, 226, 0.2);
 }
 
 button:hover {
-    background: linear-gradient(135deg, #7a1bd2 0%, #3a0070 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(138, 43, 226, 0.3);
-}
-
-button:active {
-    transform: translateY(0);
+    background: #5a6268;
 }
 
 .search-section {
     margin: 25px 0;
     padding: 20px;
-    background: linear-gradient(135deg, #e9ecef 0%, #dde4eb 100%);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background: #e9ecef;
+    border-radius: 6px;
 }
 
 .search-section input {
@@ -102,10 +87,9 @@ button:active {
 .stats-section {
     margin: 25px 0;
     padding: 20px;
-    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-    border-radius: 10px;
+    background: #d4edda;
+    border-radius: 6px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .stats-section h3 {
@@ -130,25 +114,16 @@ button:active {
     padding: 20px;
     border: 1px solid #eee;
     margin-bottom: 15px;
-    border-radius: 10px;
-    background: #fafafa;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.client-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    background: #f8f9fa;
 }
 
 .client-item.ativo {
-    border-left: 5px solid #28a745;
-    background: linear-gradient(135deg, #f8fff9 0%, #f0fff2 100%);
+    border-left: 4px solid #28a745;
 }
 
 .client-item.inativo {
-    border-left: 5px solid #dc3545;
-    background: linear-gradient(135deg, #fff8f8 0%, #fff0f0 100%);
+    border-left: 4px solid #dc3545;
 }
 
 .export-section {
@@ -156,17 +131,17 @@ button:active {
     text-align: center;
     padding: 20px;
     background: #f8f9fa;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 .export-section button {
-    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    background: #28a745;
     padding: 12px 25px;
     margin: 0 10px;
 }
 
 .export-section button:hover {
-    background: linear-gradient(135deg, #218838 0%, #19692c 100%);
+    background: #218838;
 }
 
 /* Popup Notification Styles */
@@ -175,18 +150,10 @@ button:active {
     top: 20px;
     right: 20px;
     z-index: 1000;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     min-width: 320px;
     max-width: 500px;
-    animation: slideIn 0.3s ease-out;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-@keyframes slideIn {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
 }
 
 .popup-content {
@@ -214,7 +181,6 @@ button:active {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: all 0.2s ease;
 }
 
 .popup-close:hover {
@@ -223,8 +189,8 @@ button:active {
 
 /* Success popup */
 .popup-notification.success {
-    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-    border-left: 5px solid #28a745;
+    background: #d4edda;
+    border-left: 4px solid #28a745;
 }
 
 .popup-notification.success .popup-message {
@@ -233,8 +199,8 @@ button:active {
 
 /* Error popup */
 .popup-notification.error {
-    background: linear-gradient(135deg, #f8d7da 0%, #f1b0b7 100%);
-    border-left: 5px solid #dc3545;
+    background: #f8d7da;
+    border-left: 4px solid #dc3545;
 }
 
 .popup-notification.error .popup-message {
@@ -243,8 +209,8 @@ button:active {
 
 /* Info popup */
 .popup-notification.info {
-    background: linear-gradient(135deg, #d1ecf1 0%, #b8daff 100%);
-    border-left: 5px solid #17a2b8;
+    background: #d1ecf1;
+    border-left: 4px solid #17a2b8;
 }
 
 .popup-notification.info .popup-message {
@@ -258,35 +224,27 @@ button:active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 2000;
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px);
 }
 
 .confirm-content {
     background: white;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     max-width: 450px;
     width: 90%;
     text-align: center;
-    animation: popupIn 0.3s ease-out;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-@keyframes popupIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
 }
 
 .confirm-content h3 {
     margin-top: 0;
     color: #333;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .confirm-buttons {
@@ -299,37 +257,27 @@ button:active {
 .btn-confirm, .btn-cancel {
     padding: 12px 25px;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
 }
 
 .btn-confirm {
-    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    background: #28a745;
     color: white;
 }
 
 .btn-cancel {
-    background: linear-gradient(135deg, #dc3545 0%, #bd2130 100%);
+    background: #dc3545;
     color: white;
 }
 
 .btn-confirm:hover {
-    background: linear-gradient(135deg, #218838 0%, #19692c 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #218838;
 }
 
 .btn-cancel:hover {
-    background: linear-gradient(135deg, #c82333 0%, #a71d2a 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.btn-confirm:active, .btn-cancel:active {
-    transform: translateY(0);
+    background: #c82333;
 }
 
 /* Small text for hints */
@@ -338,7 +286,6 @@ small {
     font-size: 13px;
     display: block;
     margin-top: 5px;
-    font-style: italic;
 }
 
 /* City search input styling */
@@ -346,17 +293,14 @@ small {
     margin-bottom: 15px;
     padding: 12px 15px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    font-style: italic;
-    background: #fafafa;
-    transition: all 0.3s ease;
+    border-radius: 4px;
+    background: #fff;
 }
 
 #cidadeSearch:focus {
     outline: none;
-    border-color: #8a2be2;
-    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
-    background: white;
+    border-color: #6c757d;
+    box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.1);
 }
 
 /* Header styling */
@@ -364,12 +308,8 @@ h1 {
     color: #333;
     text-align: center;
     margin-bottom: 30px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #8a2be2 0%, #4a0080 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 32px;
+    font-weight: 600;
+    font-size: 28px;
 }
 
 h2 {
@@ -381,5 +321,5 @@ h2 {
 .container h1 {
     margin-top: 0;
     padding-bottom: 15px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 1px solid #eee;
 }
