@@ -1,5 +1,22 @@
 # Changelog - Sistema de Cadastro de Clientes
 
+## [v2.5.0] - Modernização do design e melhoria da interface - 2025-10-21
+### Modernização visual
+- Redesign completo da interface com design moderno e responsivo
+- Nova paleta de cores com tons mais profissionais
+- Tipografia moderna com fonte Inter
+- Layout em grid para melhor organização
+- Cards estilizados para estatísticas e clientes
+- Botões com efeitos hover e sombras sutis
+- Melhorias na acessibilidade e usabilidade
+
+### Melhorias na interface
+- Nova estrutura de layout com seções organizadas
+- Design responsivo para dispositivos móveis
+- Animações sutis para melhor experiência do usuário
+- Ícones e espaçamento aprimorados
+- Scroll personalizado para listas longas
+
 ## [v2.4.0] - Aprimoramento visual e melhoria na pesquisa de cidades - 2025-10-21
 ### Aprimoramentos visuais
 - Redesign completo da interface com estilos mais simples e clean
