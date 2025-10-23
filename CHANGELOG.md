@@ -1,20 +1,5 @@
 # CHANGELOG
 
-## [2.5.3] - 2025-10-23
-### Adicionado
-- Novo estilo inspirado no AvoidNess para o Sistema de Cadastro de Clientes
-- Arquivo CSS dedicado com tema roxo e efeitos visuais avançados
-- Nova versão HTML com elementos do AvoidNess (ícones, gradientes, etc.)
-- Efeitos visuais como glow, floating e animações suaves
-- Scrollbar personalizada e melhorias na experiência do usuário
-
-### Modificado
-- Paleta de cores atualizada para tons de roxo (#8a2be2, #4a0080)
-- Tipografia alterada para Space Grotesk
-- Botões com efeitos hover avançados
-- Cards com efeitos de vidro fosco (glassmorphism)
-- Melhorias na responsividade e acessibilidade
-
 ## [2.5.4] - 2025-10-23
 ### Adicionado
 - Implementação do modo claro e escuro com alternância
@@ -30,6 +15,21 @@
 - Ajustes visuais para garantir contraste adequado em ambos os modos
 - Otimização do sistema de notificações para ambos os temas
 - Aprimoramento da experiência do usuário com transições suaves
+
+## [2.5.3] - 2025-10-23
+### Adicionado
+- Novo estilo inspirado no AvoidNess para o Sistema de Cadastro de Clientes
+- Arquivo CSS dedicado com tema roxo e efeitos visuais avançados
+- Nova versão HTML com elementos do AvoidNess (ícones, gradientes, etc.)
+- Efeitos visuais como glow, floating e animações suaves
+- Scrollbar personalizada e melhorias na experiência do usuário
+
+### Modificado
+- Paleta de cores atualizada para tons de roxo (#8a2be2, #4a0080)
+- Tipografia alterada para Space Grotesk
+- Botões com efeitos hover avançados
+- Cards com efeitos de vidro fosco (glassmorphism)
+- Melhorias na responsividade e acessibilidade
 
 ## [2.5.2] - 2025-06-15
 ### Modificado

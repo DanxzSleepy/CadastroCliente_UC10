@@ -78,6 +78,23 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure gradient text is visible in both light and dark modes */
+[data-theme="dark"] .gradient-text {
+    background: linear-gradient(to right, #c084fc, #e9d5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .gradient-text {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Theme toggle button */
@@ -104,6 +121,17 @@ body {
 .theme-toggle:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+}
+
+/* Ensure theme toggle button is visible in both themes */
+[data-theme="dark"] .theme-toggle {
+    background: #c084fc;
+    color: #0d0521;
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.5);
 }
 
 .container {
@@ -168,6 +196,18 @@ body {
     font-weight: 600;
     position: relative;
     padding-bottom: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure section titles are clearly visible in both themes */
+[data-theme="dark"] .form-section h2 {
+    color: #f1f5f9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .form-section h2 {
+    color: var(--text-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .form-section h2::after {
@@ -191,6 +231,18 @@ body {
     font-weight: 600;
     color: var(--text-color);
     font-size: 0.95rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure form labels are clearly visible in both themes */
+[data-theme="dark"] .form-group label {
+    color: #e2e8f0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .form-group label {
+    color: var(--text-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .form-control {
@@ -245,6 +297,19 @@ body {
 }
 
 .btn-primary {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+/* Ensure icons in buttons are visible in both themes */
+[data-theme="dark"] .btn-primary {
+    background: #c084fc;
+    color: #0d0521;
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
+}
+
+[data-theme="light"] .btn-primary {
     background: var(--primary-color);
     color: white;
     box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
@@ -401,6 +466,18 @@ body {
     font-weight: 700;
     margin: 0.5rem 0;
     color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure stat values are clearly visible in both themes */
+[data-theme="dark"] .stat-value {
+    color: #c084fc;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .stat-value {
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .stat-label {
@@ -409,6 +486,18 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure stat labels are clearly visible in both themes */
+[data-theme="dark"] .stat-label {
+    color: #e2e8f0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .stat-label {
+    color: var(--text-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .client-list {
@@ -474,6 +563,18 @@ body {
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--text-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure client names are clearly visible in both themes */
+[data-theme="dark"] .client-name {
+    color: #f8fafc;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .client-name {
+    color: var(--text-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .client-details {
@@ -489,6 +590,18 @@ body {
     gap: 0.5rem;
     color: var(--text-color);
     font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure client details are clearly visible in both themes */
+[data-theme="dark"] .client-detail {
+    color: #e2e8f0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .client-detail {
+    color: var(--text-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .client-actions {
@@ -653,6 +766,18 @@ body {
     font-size: 0.875rem;
     display: block;
     margin-top: 0.25rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure form text hints are clearly visible in both themes */
+[data-theme="dark"] .form-text {
+    color: #cbd5e1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .form-text {
+    color: var(--text-gray);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* City search input styling */
@@ -680,6 +805,7 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .status-badge.active {
@@ -690,6 +816,31 @@ body {
 .status-badge.inactive {
     background: rgba(239, 68, 68, 0.1);
     color: #fca5a5;
+}
+
+/* Ensure status badges are clearly visible in both themes */
+[data-theme="dark"] .status-badge.active {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .status-badge.inactive {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .status-badge.active {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .status-badge.inactive {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Scrollbar styling */
