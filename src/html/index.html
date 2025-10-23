@@ -3,26 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Cadastro de Clientes - AvoidNess Style</title>
-    <link rel="stylesheet" href="../css/avoidness-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <title>Sistema de Cadastro de Clientes - DEMO</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+        }
+    </style>
 </head>
 <body>
     <!-- Theme toggle button -->
     <button id="themeToggle" class="theme-toggle" title="Alternar tema">
-        <i class="ri-sun-line"></i>
+        <span id="themeIcon">☀️</span>
     </button>
 
     <div class="container">
         <div class="header">
-            <h1 class="gradient-text">Sistema de Cadastro de Clientes</h1>
-            <p>Gerencie seus clientes com estilo e eficiência</p>
+            <h1>Sistema de Cadastro de Clientes</h1>
+            <p>Gerencie seus clientes de forma eficiente e moderna</p>
         </div>
         
         <div class="main-content">
             <div class="form-section">
-                <h2><i class="ri-user-add-line"></i> Cadastrar Cliente</h2>
+                <h2>Cadastrar Cliente</h2>
                 <form id="clientForm">
                     <!-- Hidden field to store client ID during editing -->
                     <input type="hidden" id="clientId" name="clientId">
@@ -81,15 +107,15 @@
                         </select>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary"><i class="ri-save-line"></i> Cadastrar Cliente</button>
-                    <button type="button" class="btn btn-outline" onclick="limparFormulario()"><i class="ri-delete-bin-line"></i> Limpar</button>
+                    <button type="submit" class="btn btn-primary">Cadastrar Cliente</button>
+                    <button type="button" class="btn btn-outline" onclick="limparFormulario()">Limpar</button>
                 </form>
             </div>
             
             <div class="results-section">
                 <!-- Search and filter section -->
                 <div class="search-section">
-                    <h2><i class="ri-search-line"></i> Buscar Clientes</h2>
+                    <h2>Buscar Clientes</h2>
                     <div class="search-controls">
                         <div class="form-group search-input">
                             <input type="text" id="searchInput" class="form-control" placeholder="Buscar por nome, e-mail ou CPF...">
@@ -102,8 +128,8 @@
                             </select>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" onclick="filtrarClientes()"><i class="ri-search-2-line"></i> Buscar</button>
-                            <button type="button" class="btn btn-outline" onclick="limparFiltro()"><i class="ri-close-line"></i> Limpar</button>
+                            <button type="button" class="btn btn-primary" onclick="filtrarClientes()">Buscar</button>
+                            <button type="button" class="btn btn-outline" onclick="limparFiltro()">Limpar</button>
                         </div>
                     </div>
                 </div>
@@ -129,15 +155,15 @@
                 
                 <div class="client-list">
                     <div class="client-list-header">
-                        <h2><i class="ri-group-line"></i> Clientes Cadastrados</h2>
+                        <h2>Clientes Cadastrados</h2>
                     </div>
                     <div class="client-items" id="clientesCadastrados"></div>
                 </div>
                 
                 <!-- Export buttons -->
                 <div class="export-section">
-                    <button type="button" class="btn btn-success" onclick="exportarCSV()"><i class="ri-file-excel-line"></i> Exportar CSV</button>
-                    <button type="button" class="btn btn-primary" onclick="exportarJSON()"><i class="ri-file-code-line"></i> Exportar JSON</button>
+                    <button type="button" class="btn btn-success" onclick="exportarCSV()">Exportar CSV</button>
+                    <button type="button" class="btn btn-primary" onclick="exportarJSON()">Exportar JSON</button>
                 </div>
             </div>
         </div>
@@ -148,12 +174,12 @@
         // Theme toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
             const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = themeToggle.querySelector('i');
+            const themeIcon = document.getElementById('themeIcon');
             
             // Check for saved theme or default to light
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            themeIcon.className = savedTheme === 'dark' ? 'ri-moon-line' : 'ri-sun-line';
+            themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
             
             // Toggle theme function
             themeToggle.addEventListener('click', function() {
@@ -162,7 +188,7 @@
                 
                 document.documentElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
-                themeIcon.className = newTheme === 'dark' ? 'ri-moon-line' : 'ri-sun-line';
+                themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
             });
         });
     </script>

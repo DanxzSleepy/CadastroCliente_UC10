@@ -572,7 +572,7 @@ function atualizarCliente(id, dados) {
 
 function excluirCliente(id) {
     // Show custom confirmation popup
-    showConfirmPopup('Tem certeza que deseja excluir este cliente?', () => {
+    showConfirmPopup('Tem certeza que deseja excluir este cliente?', function() {
         clientes = clientes.filter(cliente => cliente.id !== id);
         salvarClientes();
         createPopup('Cliente excluído!', 'success');
@@ -583,6 +583,12 @@ function excluirCliente(id) {
 
 // Function to show custom confirmation popup
 function showConfirmPopup(message, callback) {
+    // Remove any existing confirmation popups
+    const existingConfirm = document.getElementById('confirm-popup');
+    if (existingConfirm) {
+        existingConfirm.remove();
+    }
+    
     // Create custom confirmation popup
     const popup = document.createElement('div');
     popup.id = 'confirm-popup';
@@ -590,20 +596,35 @@ function showConfirmPopup(message, callback) {
     popup.innerHTML = `
         <div class="confirm-content">
             <h3>Confirmação</h3>
-            <p>${message}</p>
+            <p class="confirm-message">${message}</p>
             <div class="confirm-buttons">
-                <button onclick="${callback.name}()" class="btn-confirm">Sim</button>
-                <button onclick="cancelDelete()" class="btn-cancel">Não</button>
+                <button class="btn btn-primary" id="confirm-yes">Sim</button>
+                <button class="btn btn-outline" id="confirm-no">Não</button>
             </div>
         </div>
     `;
     
     document.body.appendChild(popup);
+    
+    // Add event listeners
+    document.getElementById('confirm-yes').addEventListener('click', function() {
+        popup.remove();
+        if (callback && typeof callback === 'function') {
+            callback();
+        }
+    });
+    
+    document.getElementById('confirm-no').addEventListener('click', function() {
+        popup.remove();
+    });
 }
 
 function cancelDelete() {
     // Remove confirmation popup
-    document.getElementById('confirm-popup').remove();
+    const popup = document.getElementById('confirm-popup');
+    if (popup) {
+        popup.remove();
+    }
 }
 
 function limparFormulario() {
@@ -811,7 +832,7 @@ function exportarJSON() {
         metadata: {
             totalClientes: clientes.length,
             dataExportacao: new Date().toLocaleString('pt-BR'),
-            versao: '2.4.0'
+            versao: '2.5.4'
         },
         clientes: clientes
     };
@@ -828,3 +849,34 @@ function exportarJSON() {
     
     createPopup('Lista de clientes exportada com sucesso!', 'success');
 }
+
+// Initialize the form when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    popularPaises();
+    atualizarListaClientes();
+    
+    // Add theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        const themeIcon = document.getElementById('themeIcon');
+        
+        // Check for saved theme or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (themeIcon) {
+            themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+        }
+        
+        // Toggle theme function
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            if (themeIcon) {
+                themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+            }
+        });
+    }
+});

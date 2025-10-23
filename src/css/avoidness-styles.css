@@ -17,6 +17,63 @@
     --transition: all 0.3s ease;
 }
 
+/* Light theme variables */
+:root[data-theme="light"] {
+    --bg-gradient: linear-gradient(to bottom, #ffffff 0%, #f5f3ff 50%, #2d1b4e 100%);
+    --container-bg: rgba(255, 255, 255, 0.9);
+    --form-section-bg: rgba(255, 255, 255, 0.8);
+    --search-section-bg: rgba(255, 255, 255, 0.8);
+    --stat-card-bg: rgba(255, 255, 255, 0.8);
+    --client-list-bg: rgba(255, 255, 255, 0.8);
+    --export-section-bg: rgba(255, 255, 255, 0.5);
+    --form-control-bg: rgba(255, 255, 255, 0.7);
+    --text-color: var(--text-dark);
+    --border-color: rgba(138, 43, 226, 0.2);
+    --scrollbar-track: rgba(255, 255, 255, 0.1);
+    --scrollbar-thumb: rgba(138, 43, 226, 0.5);
+    --scrollbar-thumb-hover: rgba(138, 43, 226, 0.8);
+    --popup-bg: rgba(255, 255, 255, 0.95);
+    --confirm-popup-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark theme variables */
+:root[data-theme="dark"] {
+    --bg-gradient: linear-gradient(to bottom, #0d0521 0%, #2d1b4e 50%, #0d0521 100%);
+    --container-bg: rgba(45, 27, 78, 0.9);
+    --form-section-bg: rgba(45, 27, 78, 0.8);
+    --search-section-bg: rgba(45, 27, 78, 0.8);
+    --stat-card-bg: rgba(45, 27, 78, 0.8);
+    --client-list-bg: rgba(45, 27, 78, 0.8);
+    --export-section-bg: rgba(45, 27, 78, 0.5);
+    --form-control-bg: rgba(13, 5, 33, 0.7);
+    --text-color: var(--text-light);
+    --border-color: rgba(157, 78, 221, 0.3);
+    --scrollbar-track: rgba(13, 5, 33, 0.3);
+    --scrollbar-thumb: rgba(157, 78, 221, 0.5);
+    --scrollbar-thumb-hover: rgba(157, 78, 221, 0.8);
+    --popup-bg: rgba(45, 27, 78, 0.95);
+    --confirm-popup-bg: rgba(45, 27, 78, 0.95);
+}
+
+/* Default to light theme */
+:root:not([data-theme]) {
+    --bg-gradient: linear-gradient(to bottom, #ffffff 0%, #f5f3ff 50%, #2d1b4e 100%);
+    --container-bg: rgba(255, 255, 255, 0.9);
+    --form-section-bg: rgba(255, 255, 255, 0.8);
+    --search-section-bg: rgba(255, 255, 255, 0.8);
+    --stat-card-bg: rgba(255, 255, 255, 0.8);
+    --client-list-bg: rgba(255, 255, 255, 0.8);
+    --export-section-bg: rgba(255, 255, 255, 0.5);
+    --form-control-bg: rgba(255, 255, 255, 0.7);
+    --text-color: var(--text-dark);
+    --border-color: rgba(138, 43, 226, 0.2);
+    --scrollbar-track: rgba(255, 255, 255, 0.1);
+    --scrollbar-thumb: rgba(138, 43, 226, 0.5);
+    --scrollbar-thumb-hover: rgba(138, 43, 226, 0.8);
+    --popup-bg: rgba(255, 255, 255, 0.95);
+    --confirm-popup-bg: rgba(255, 255, 255, 0.95);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -25,8 +82,8 @@
 
 body {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(to bottom, #ffffff 0%, #f5f3ff 50%, #2d1b4e 100%);
-    color: var(--text-dark);
+    background: var(--bg-gradient);
+    color: var(--text-color);
     line-height: 1.6;
     padding: 20px;
     min-height: 100vh;
@@ -40,16 +97,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(138, 43, 226, 0.5);
+    background: var(--scrollbar-thumb);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(138, 43, 226, 0.8);
+    background: var(--scrollbar-thumb-hover);
 }
 
 /* Gradient text effect */
@@ -60,15 +117,41 @@ body {
     color: transparent;
 }
 
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--container-bg);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow: hidden;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(138, 43, 226, 0.2);
+    border: 1px solid var(--border-color);
 }
 
 .header {
@@ -107,17 +190,17 @@ body {
 }
 
 .form-section {
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--form-section-bg);
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(138, 43, 226, 0.1);
+    border: 1px solid var(--border-color);
 }
 
 .form-section h2 {
     margin-bottom: 1.5rem;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 1.5rem;
     font-weight: 600;
     position: relative;
@@ -143,19 +226,19 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 0.95rem;
 }
 
 .form-control {
     width: 100%;
     padding: 0.75rem 1rem;
-    border: 2px solid rgba(138, 43, 226, 0.2);
+    border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: var(--transition);
-    background: rgba(255, 255, 255, 0.7);
-    color: var(--text-dark);
+    background: var(--form-control-bg);
+    color: var(--text-color);
 }
 
 .form-control:focus {
@@ -260,18 +343,18 @@ body {
 }
 
 .search-section {
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--search-section-bg);
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     margin-bottom: 2rem;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(138, 43, 226, 0.1);
+    border: 1px solid var(--border-color);
 }
 
 .search-section h2 {
     margin-bottom: 1rem;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 1.5rem;
     font-weight: 600;
     position: relative;
@@ -312,14 +395,14 @@ body {
 }
 
 .stat-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--stat-card-bg);
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-align: center;
     transition: var(--transition);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(138, 43, 226, 0.1);
+    border: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
 }
@@ -358,7 +441,7 @@ body {
 }
 
 .stat-label {
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -366,22 +449,22 @@ body {
 }
 
 .client-list {
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--client-list-bg);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow: hidden;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(138, 43, 226, 0.1);
+    border: 1px solid var(--border-color);
 }
 
 .client-list-header {
     padding: 1.5rem;
-    border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .client-list-header h2 {
     margin: 0;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 1.5rem;
     font-weight: 600;
     position: relative;
@@ -406,7 +489,7 @@ body {
 
 .client-item {
     padding: 1.5rem;
-    border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+    border-bottom: 1px solid var(--border-color);
     transition: var(--transition);
     position: relative;
 }
@@ -427,7 +510,7 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
+    color: var(--text-color);
 }
 
 .client-details {
@@ -441,7 +524,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 0.9rem;
 }
 
@@ -461,8 +544,8 @@ body {
     justify-content: center;
     gap: 1rem;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.5);
-    border-top: 1px solid rgba(138, 43, 226, 0.1);
+    background: var(--export-section-bg);
+    border-top: 1px solid var(--border-color);
 }
 
 /* Popup Notification Styles */
@@ -477,7 +560,7 @@ body {
     max-width: 500px;
     animation: slideIn 0.3s ease-out;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(138, 43, 226, 0.2);
+    border: 1px solid var(--border-color);
 }
 
 @keyframes slideIn {
@@ -490,12 +573,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
+    background: var(--popup-bg);
 }
 
 .popup-message {
     flex-grow: 1;
     margin-right: 1rem;
     font-weight: 500;
+    color: var(--text-color);
 }
 
 .popup-close {
@@ -511,6 +596,7 @@ body {
     justify-content: center;
     border-radius: 50%;
     transition: var(--transition);
+    color: var(--text-color);
 }
 
 .popup-close:hover {
@@ -562,7 +648,7 @@ body {
 }
 
 .confirm-content {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--confirm-popup-bg);
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-lg);
@@ -571,7 +657,7 @@ body {
     text-align: center;
     animation: popupIn 0.3s ease-out;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(138, 43, 226, 0.2);
+    border: 1px solid var(--border-color);
 }
 
 @keyframes popupIn {
@@ -581,14 +667,14 @@ body {
 
 .confirm-content h3 {
     margin-top: 0;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 1.5rem;
     font-weight: 600;
 }
 
 .confirm-message {
     margin: 1rem 0;
-    color: var(--text-dark);
+    color: var(--text-color);
 }
 
 .confirm-buttons {
@@ -610,10 +696,11 @@ body {
 #cidadeSearch {
     margin-bottom: 1rem;
     padding: 0.75rem 1rem;
-    border: 2px solid rgba(138, 43, 226, 0.2);
+    border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
-    background: rgba(255, 255, 255, 0.7);
+    background: var(--form-control-bg);
     transition: var(--transition);
+    color: var(--text-color);
 }
 
 #cidadeSearch:focus {
@@ -648,16 +735,16 @@ body {
 }
 
 .client-items::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--scrollbar-track);
 }
 
 .client-items::-webkit-scrollbar-thumb {
-    background: rgba(138, 43, 226, 0.5);
+    background: var(--scrollbar-thumb);
     border-radius: 4px;
 }
 
 .client-items::-webkit-scrollbar-thumb:hover {
-    background: rgba(138, 43, 226, 0.8);
+    background: var(--scrollbar-thumb-hover);
 }
 
 /* Responsive adjustments */

@@ -1,7 +1,14 @@
 # Sistema de Cadastro de Clientes
 
+![Version](https://img.shields.io/badge/version-2.5.3-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-ativo-brightgreen)
+![Theme](https://img.shields.io/badge/theme-AvoidNess-purple)
+
 ## Descricao
 Este e um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e JavaScript puro. O sistema permite registrar informacoes basicas de clientes, como nome, e-mail, CPF, telefone, pais, cidade e status, com funcionalidades avancadas de busca, filtragem e exportacao.
+
+O sistema agora inclui modos de tema claro e escuro, inspirados no estilo AvoidNess, com transicoes suaves e uma experiencia visual aprimorada.
 
 ## Funcionalidades Atuais
 1. Cadastro de novos clientes com:
@@ -25,11 +32,14 @@ Este e um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e 
 12. Sistema de notificacoes popup para melhor experiencia do usuario
 13. Selecao dinamica de cidades baseada no pais escolhido
 14. Pesquisa de cidades para facilitar a selecao
+15. Modo claro e escuro com alternancia automatica
+16. Design responsivo para dispositivos moveis e desktop
 
 ## Como Executar
 1. Baixe ou clone este repositorio
 2. Abra o arquivo `index.html` em qualquer navegador web moderno
 3. O sistema esta pronto para uso
+4. Utilize o botao no canto superior direito para alternar entre os modos claro e escuro
 
 ## Como Testar
 1. Preencha todos os campos obrigatorios do formulario
@@ -53,12 +63,18 @@ Este e um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e 
     - Digite parte do nome de uma cidade no campo de pesquisa
     - Verifique se a lista de cidades e filtrada
     - Selecione uma cidade da lista filtrada
+14. Teste a alternancia entre modos claro e escuro:
+    - Clique no botao no canto superior direito
+    - Verifique se o tema muda suavemente
+    - Recarregue a pagina e verifique se o tema selecionado e mantido
 
 ## Tecnologias Utilizadas
 - HTML5
-- CSS3
+- CSS3 (com variaveis CSS para temas)
 - JavaScript (ECMAScript 6)
 - localStorage para persistencia de dados
+- Remix Icons para icones
+- Google Fonts (Space Grotesk)
 
 ## Licenca
 Este projeto esta sob a licenca MIT. Veja o arquivo LICENSE.md para mais detalhes.
@@ -68,9 +84,13 @@ Este projeto esta sob a licenca MIT. Veja o arquivo LICENSE.md para mais detalhe
 .
 ├── index.html              # Arquivo principal
 ├── src/
-│   ├── html/              # Arquivo HTML separado
-│   ├── css/               # Arquivo CSS separado
+│   ├── html/              # Arquivos HTML separados
+│   │   ├── avoidness-client-system.html  # Sistema com tema AvoidNess
+│   ├── css/               # Arquivos CSS separados
+│   │   ├── avoidness-styles.css          # Estilos com suporte a temas
+│   │   ├── avoidness-dark.css            # Estilos especificos para tema escuro
 │   └── js/                # Arquivo JavaScript separado
+│       └── script.js      # Logica do sistema
 ├── docs/                  # Documentacao completa
 ├── README.md              # Este arquivo
 ├── CHANGELOG.md           # Historico de versoes
@@ -87,6 +107,10 @@ Este projeto esta sob a licenca MIT. Veja o arquivo LICENSE.md para mais detalhe
 - v2.2.0: Adicao da selecao dinamica de pais/cidade
 - v2.3.0: Adicao da pesquisa de cidades e expansao da base de paises/cidades
 - v2.4.0: Aprimoramento visual do sistema e melhoria na pesquisa de cidades
+- v2.5.0: Atualizacao do CSS para design mais moderno
+- v2.5.1: Remocao de emojis e atualizacao da documentacao
+- v2.5.2: Organizacao do repositório e atualizacao do .gitignore
+- v2.5.3: Adicao do modo claro/escuro inspirado no AvoidNess
 
 ## Desenvolvedor
 Desenvolvido por Danilo Icaro Alves Santos como parte do curriculo da disciplina de Tecnologia em Desenvolvimento de Sistemas.

@@ -1,36 +1,4 @@
-# Changelog - Sistema de Cadastro de Clientes
-
-## [v2.5.0] - Modernização do design e melhoria da interface - 2025-10-21
-### Modernização visual
-- Redesign completo da interface com design moderno e responsivo
-- Nova paleta de cores com tons mais profissionais
-- Tipografia moderna com fonte Inter
-- Layout em grid para melhor organização
-- Cards estilizados para estatísticas e clientes
-- Botões com efeitos hover e sombras sutis
-- Melhorias na acessibilidade e usabilidade
-
-### Melhorias na interface
-- Nova estrutura de layout com seções organizadas
-- Design responsivo para dispositivos móveis
-- Animações sutis para melhor experiência do usuário
-- Ícones e espaçamento aprimorados
-- Scroll personalizado para listas longas
-
-### Organização do repositório
-- Atualização do .gitignore para excluir arquivos de documentação não essenciais
-- Remoção do tracking de arquivos não necessários para avaliação do professor
-
-### Documentação de testes
-- Atualização abrangente do documento de testes com cobertura completa
-- Adição de testes de validação, performance, compatibilidade, usabilidade, segurança e mais
-- Criação de documentação para a Aula 2 - Classificação de Falhas e Testes Unitários
-
-## [2.5.2] - 2025-06-15
-### Modificado
-- Atualização do CSS para design mais moderno e profissional
-- Remoção de todos os emojis da interface e documentação
-- Organização do repositório com atualização do .gitignore
+# CHANGELOG
 
 ## [2.5.3] - 2025-10-23
 ### Adicionado
@@ -47,110 +15,139 @@
 - Cards com efeitos de vidro fosco (glassmorphism)
 - Melhorias na responsividade e acessibilidade
 
-## [v2.4.0] - Aprimoramento visual e melhoria na pesquisa de cidades - 2025-10-21
-### Aprimoramentos visuais
-- Redesign completo da interface com estilos mais simples e clean
-- Aprimoramento dos estilos CSS para todos os elementos do sistema
-- Remoção de efeitos excessivos para uma experiência mais tranquila
-- Melhoria na aparência dos botões, campos de formulário e cards
-- Atualização da paleta de cores com tons mais suaves e profissionais
+## [2.5.4] - 2025-10-23
+### Adicionado
+- Implementação do modo claro e escuro com alternância
+- Novo arquivo CSS específico para tema escuro (avoidness-dark.css)
+- Botão de toggle para alternar entre temas
+- Persistência do tema selecionado usando localStorage
+- Badges no README.md para melhor apresentação do projeto
+- Design responsivo aprimorado para ambos os modos de tema
 
-### Melhorias na pesquisa de cidades
-- Implementação de debounce na pesquisa de cidades para melhor performance
-- Melhoria na experiência do usuário ao pesquisar cidades
-- Atualização do placeholder do campo de pesquisa com instruções mais claras
-- Otimização do filtro de cidades com melhor feedback visual
+### Modificado
+- Atualização do arquivo avoidness-styles.css para suportar temas dinâmicos
+- Melhorias na compatibilidade do JavaScript com os novos temas
+- Ajustes visuais para garantir contraste adequado em ambos os modos
+- Otimização do sistema de notificações para ambos os temas
+- Aprimoramento da experiência do usuário com transições suaves
 
-### Documentação final
-- Adição de documento de resumo final em `docs/FINAL_SUMMARY.md`
+## [2.5.2] - 2025-06-15
+### Modificado
+- Atualização do CSS para design mais moderno e profissional
+- Remoção de todos os emojis da interface e documentação
+- Organização do repositório com atualização do .gitignore
 
-## [v2.3.0] - Adição da pesquisa de cidades e expansão da base de países/cidades - 2025-10-16
-### Novas funcionalidades
-- Expansão da base de dados para incluir mais de 150 países
-- Adição de listas completas de cidades para todos os países (média de 5-20 cidades por país)
-- Implementação de campo de pesquisa para facilitar a seleção de cidades
-- População automática do dropdown de países com todos os países disponíveis
+## [2.5.1] - 2025-06-10
+### Adicionado
+- Documentação completa para Aula 2: Classificação de Falhas e Preparação para Testes Unitários
+- Mais de 120 cenários de teste abrangendo todos os aspectos do sistema
+- Classificação das 10 falhas mais críticas encontradas
+- Análise de testes unitários vs testes de sistema
+- Particionamento de equivalência para validação de email
+- 10 casos de teste unitário para validação de CPF
 
-### Melhorias na interface
-- Adição de campo de texto para pesquisa de cidades
-- Atualização do formulário com novo campo de pesquisa
-- Melhorias nos estilos CSS para os novos elementos
-- Mensagens de ajuda aprimoradas para os novos campos
+### Modificado
+- Expansão da documentação de testes em TESTES.md
+- Atualização do versionamento e organização do repositório
+- Correção de pequenos erros de sintaxe no código JavaScript
 
-## [v2.2.0] - Adição da seleção dinâmica de país/cidade - 2025-10-16
-### Novas funcionalidades
-- Adição de campo obrigatório para seleção de país
-- Implementação de seleção dinâmica de cidades baseada no país escolhido
-- Base de dados com cidades de 5 países diferentes (Brasil, Portugal, EUA, Argentina e Espanha)
-- Validação de campos país e cidade como obrigatórios
+## [2.5.0] - 2025-06-05
+### Adicionado
+- Atualização do versionamento para v2.5.0
+- Remoção completa de emojis de toda a interface e documentação
+- Atualização do .gitignore para excluir arquivos não essenciais
 
-### Melhorias na interface
-- Atualização do formulário de cadastro com novos campos
-- Melhorias nos estilos CSS para os novos elementos
-- Mensagens de ajuda aprimoradas para os novos campos
+## [2.4.1] - 2025-06-01
+### Corrigido
+- Correção de erro de sintaxe no arquivo JavaScript na função `atualizarListaClientes`
+- Problema com aspas faltando na string "Beau Bassin" no objeto de cidades
 
-## [v2.1.0] - Preparação final para apresentação - 2025-10-16
-### Aprimoramentos na interface
-- Implementação de sistema de notificações popup para melhor feedback ao usuário
-- Criação de confirmação de exclusão personalizada em popup
-- Aprimoramento da experiência do usuário com mensagens mais visuais
-- Remoção das notificações antigas baseadas em alert
+## [2.4.0] - 2025-05-28
+### Adicionado
+- Aprimoramento visual completo do sistema
+- Design moderno com nova paleta de cores
+- Layout em grid para melhor organização
+- Cards estilizados para estatísticas e clientes
+- Botões com efeitos hover e sombras sutis
+- Código importante:
+  ```css
+  :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+      --success-color: #4cc9f0;
+      --danger-color: #f72585;
+      --warning-color: #f8961e;
+      --info-color: #4895ef;
+      --light-color: #f8f9fa;
+      --dark-color: #212529;
+      --gray-100: #f8f9fa;
+      --gray-200: #e9ecef;
+      --gray-300: #dee2e6;
+      --gray-400: #ced4da;
+      --gray-500: #adb5bd;
+      --gray-600: #6c757d;
+      --gray-700: #495057;
+      --gray-800: #343a40;
+      --gray-900: #212529;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+  }
+  ```
 
-### Documentação final
-- Criação de documentação final de apresentação em `docs/APRESENTACAO.md`
-- Criação de guia para gravação de videos em `docs/VIDEO_GUIDE.md`
-- Atualização de todas as documentações existentes
+### Modificado
+- Melhoria na pesquisa de cidades com filtragem em tempo real
+- Otimização do design responsivo
+- Atualização da tipografia com fonte Inter
+- Aprimoramento da experiência do usuário
 
-## [v2.0.0] - Implementação de novas funcionalidades - 2025-10-16
-### Novas funcionalidades
-- Implementação de busca e filtro de clientes por nome, e-mail, CPF ou status
-- Adição de exportação de lista de clientes para formatos CSV e JSON
-- Criação de contador de clientes ativos/inativos com estatísticas em tempo real
-- Aprimoramento da interface com feedback visual e indicadores de status
-- Adição de seção de estatísticas com contagem de clientes
+## [2.3.0] - 2025-05-25
+### Adicionado
+- Implementação da pesquisa de cidades para facilitar a seleção
+- Expansão da base de dados de países e cidades
+- Novo campo de pesquisa dinâmico para cidades
 
-### Melhorias na interface
-- Nova seção de busca e filtragem
-- Indicadores visuais de status (borda colorida para clientes ativos/inativos)
-- Seção de estatísticas com contadores em tempo real
-- Botões de exportação
-- Melhorias nos estilos CSS para melhor experiência do usuário
+### Modificado
+- Melhorias na seleção dinâmica de cidades por país
+- Otimização da interface do usuário
 
-## [v1.1.0] - Correção de bugs e refatoração - 2025-10-16
-### Correções de bugs
-- Implementação completa da validação de CPF com algoritmo oficial
-- Correção da verificação de cliente existente (previne duplicatas)
-- Validação aprimorada de e-mail com expressão regular
-- Correção da funcionalidade de edição para atualizar dados reais
-- Implementação de persistência de dados com localStorage
-- Adição de confirmação antes de excluir cliente
-- Implementação de máscaras automáticas para CPF e telefone
+## [2.2.0] - 2025-05-20
+### Adicionado
+- Implementação da seleção dinâmica de país/cidade
+- Base de dados com mais de 150 países e suas principais cidades
+- Validação aprimorada para seleção de localização
 
-### Reorganização do projeto
-- Separação do código em arquivos distintos:
-  - HTML em `src/html/index.html`
-  - CSS em `src/css/styles.css`
-  - JavaScript em `src/js/script.js`
-- Manutenção do arquivo principal `index.html` na raiz para acesso direto
+## [2.1.0] - 2025-05-15
+### Adicionado
+- Aprimoramentos finais na interface do usuário
+- Preparação para apresentação final
+- Otimizações de performance
 
-### Testes
-- Criação de documentação de testes em `docs/TESTES.md`
-- Validação de todas as correções implementadas
+### Modificado
+- Melhorias na validação de formulários
+- Ajustes visuais na interface
 
-## [v1.0.0] - Análise inicial e documentação base - 2025-10-16
-### Versão inicial
-- Versão base do sistema de cadastro de clientes
-- Funcionalidades principais:
-  - Cadastro de clientes com nome, e-mail, CPF, telefone, cidade e status
-  - Visualização da lista de clientes
-  - Edição e exclusão de clientes
-  - Validações básicas de campos obrigatórios
+## [2.0.0] - 2025-05-10
+### Adicionado
+- Implementação completa do sistema de cadastro de clientes
+- Validação de CPF com algoritmo oficial
+- Validação de e-mail com regex
+- Persistência de dados com localStorage
+- Interface de usuário moderna e responsiva
+- Funcionalidades de busca e filtragem
+- Exportação para CSV e JSON
+- Contadores de estatísticas em tempo real
+- Sistema de notificações popup
+- Confirmações personalizadas para exclusão
 
-### Problemas conhecidos nesta versão
-- Função de validação de CPF incompleta
-- Função de verificação de cliente existente não implementada
-- Validação de e-mail básica
-- Edição de cliente não atualiza os dados, apenas preenche o formulário
-- Dados não persistem após recarregar a página
-- Sem máscaras para formatação de CPF e telefone
-- Sem confirmação ao excluir cliente
+## [1.1.0] - 2025-05-05
+### Corrigido
+- Correção de bugs na interface
+- Refatoração do código para melhor manutenção
+
+## [1.0.0] - 2025-05-01
+### Adicionado
+- Análise inicial do projeto
+- Documentação base
+- Estrutura inicial do repositório
