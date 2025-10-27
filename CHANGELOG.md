@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [2.5.5] - 2025-10-27
+### Modificado
+- Otimização do sistema de temas claro/escuro para melhor performance
+- Remoção de código duplicado no arquivo script.js que causava conflitos
+- Correção da manipulação do ícone de tema no JavaScript
+- Mesclagem das definições de variáveis CSS no arquivo avoidness-dark.css
+- Atualização do .gitignore para ignorar arquivos HTML desnecessários
+- Remoção de arquivos HTML redundantes mantendo apenas avoidness-client-system.html como ponto de entrada
+
 ## [2.5.4] - 2025-10-23
 ### Adicionado
 - Implementação do modo claro e escuro com alternância

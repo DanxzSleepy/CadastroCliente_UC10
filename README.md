@@ -1,6 +1,6 @@
 # Sistema de Cadastro de Clientes
 
-![Version](https://img.shields.io/badge/version-2.5.4-blue)
+![Version](https://img.shields.io/badge/version-2.5.5-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-ativo-brightgreen)
 ![Theme](https://img.shields.io/badge/theme-AvoidNess-purple)
@@ -37,7 +37,7 @@ O sistema agora inclui modos de tema claro e escuro, inspirados no estilo AvoidN
 
 ## Como Executar
 1. Baixe ou clone este repositório
-2. Abra o arquivo `index.html` em qualquer navegador web moderno
+2. Abra o arquivo `src/html/avoidness-client-system.html` em qualquer navegador web moderno
 3. O sistema está pronto para uso
 4. Utilize o botão no canto superior direito para alternar entre os modos claro e escuro
 
@@ -82,13 +82,12 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE.md para mais detal
 ## Estrutura do Projeto
 ```
 .
-├── index.html              # Arquivo principal
 ├── src/
 │   ├── html/              # Arquivos HTML separados
-│   │   ├── avoidness-client-system.html  # Sistema com tema AvoidNess
+│   │   └── avoidness-client-system.html  # Sistema com tema AvoidNess (ponto de entrada)
 │   ├── css/               # Arquivos CSS separados
 │   │   ├── avoidness-styles.css          # Estilos com suporte a temas
-│   │   ├── avoidness-dark.css            # Estilos específicos para tema escuro
+│   │   └── avoidness-dark.css            # Estilos específicos para tema escuro
 │   └── js/                # Arquivo JavaScript separado
 │       └── script.js      # Lógica do sistema
 ├── docs/                  # Documentação completa
@@ -112,6 +111,7 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE.md para mais detal
 - v2.5.2: Organização do repositório e atualização do .gitignore
 - v2.5.3: Adição do modo claro/escuro inspirado no AvoidNess
 - v2.5.4: Aprimoramento completo dos temas claro/escuro e otimização da experiência do usuário
+- v2.5.5: Otimização do sistema de temas e limpeza de arquivos desnecessários
 
 ## Desenvolvedor
 Desenvolvido por Danilo Icaro Alves Santos como parte do currículo da disciplina de Tecnologia em Desenvolvimento de Sistemas.
