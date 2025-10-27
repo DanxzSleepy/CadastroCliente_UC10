@@ -148,22 +148,25 @@
         // Theme toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
             const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = themeToggle.querySelector('i');
             
-            // Check for saved theme or default to light
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            themeIcon.className = savedTheme === 'dark' ? 'ri-moon-line' : 'ri-sun-line';
-            
-            // Toggle theme function
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            if (themeToggle) {
+                const themeIcon = themeToggle.querySelector('i');
                 
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                themeIcon.className = newTheme === 'dark' ? 'ri-moon-line' : 'ri-sun-line';
-            });
+                // Check for saved theme or default to light
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                themeIcon.className = savedTheme === 'dark' ? 'ri-moon-line' : 'ri-sun-line';
+                
+                // Toggle theme function
+                themeToggle.addEventListener('click', function() {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    themeIcon.className = newTheme === 'dark' ? 'ri-moon-line' : 'ri-sun-line';
+                });
+            }
         });
     </script>
 </body>

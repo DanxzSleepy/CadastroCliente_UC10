@@ -16,10 +16,22 @@
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
-}
-
-/* Dark theme variables */
-:root {
+    /* Dark theme variables */
+    --bg-gradient: linear-gradient(to bottom, #0d0521 0%, #2d1b4e 50%, #0d0521 100%);
+    --container-bg: rgba(45, 27, 78, 0.9);
+    --form-section-bg: rgba(45, 27, 78, 0.8);
+    --search-section-bg: rgba(45, 27, 78, 0.8);
+    --stat-card-bg: rgba(45, 27, 78, 0.8);
+    --client-list-bg: rgba(45, 27, 78, 0.8);
+    --export-section-bg: rgba(45, 27, 78, 0.5);
+    --form-control-bg: rgba(13, 5, 33, 0.7);
+    --text-color: var(--text-light);
+    --border-color: rgba(157, 78, 221, 0.3);
+    --scrollbar-track: rgba(13, 5, 33, 0.3);
+    --scrollbar-thumb: rgba(157, 78, 221, 0.5);
+    --scrollbar-thumb-hover: rgba(157, 78, 221, 0.8);
+    --popup-bg: rgba(45, 27, 78, 0.95);
+    --confirm-popup-bg: rgba(45, 27, 78, 0.95);
     --bg-gradient: linear-gradient(to bottom, #0d0521 0%, #2d1b4e 50%, #0d0521 100%);
     --container-bg: rgba(45, 27, 78, 0.9);
     --form-section-bg: rgba(45, 27, 78, 0.8);

@@ -855,28 +855,5 @@ document.addEventListener('DOMContentLoaded', function() {
     popularPaises();
     atualizarListaClientes();
     
-    // Add theme toggle functionality
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        const themeIcon = document.getElementById('themeIcon');
-        
-        // Check for saved theme or default to light
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        if (themeIcon) {
-            themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
-        }
-        
-        // Toggle theme function
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            if (themeIcon) {
-                themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-            }
-        });
-    }
+    // Theme toggle functionality is handled in the HTML file
 });
