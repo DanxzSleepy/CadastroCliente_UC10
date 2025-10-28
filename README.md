@@ -35,11 +35,14 @@ O sistema agora inclui modos de tema claro e escuro, inspirados no estilo AvoidN
 15. Modo claro e escuro com alternância automática
 16. Design responsivo para dispositivos móveis e desktop
 
-## Como Executar
+## Como Executar Localmente
 1. Baixe ou clone este repositório
-2. Abra o arquivo `src/html/avoidness-client-system.html` em qualquer navegador web moderno
+2. Abra o arquivo `index.html` em qualquer navegador web moderno
 3. O sistema está pronto para uso
-4. Utilize o botão no canto superior direito para alternar entre os modos claro e escuro
+
+## Acesso Online
+O sistema está disponível online através do GitHub Pages:
+[https://danxzsleepy.github.io/UC10_TDS_Sistema_de_Cadastro_de_Clientes/](https://danxzsleepy.github.io/UC10_TDS_Sistema_de_Cadastro_de_Clientes/)
 
 ## Deploy no GitHub Pages
 O projeto está configurado para deploy automático no GitHub Pages através do GitHub Actions.
@@ -135,6 +138,7 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE.md para mais detal
 - v2.5.3: Adição do modo claro/escuro inspirado no AvoidNess
 - v2.5.4: Aprimoramento completo dos temas claro/escuro e otimização da experiência do usuário
 - v2.5.5: Otimização do sistema de temas e limpeza de arquivos desnecessários
+- v2.5.6: Preparação para deploy no GitHub Pages
 
 ## Desenvolvedor
 Desenvolvido por Danilo Icaro Alves Santos como parte do currículo da disciplina de Tecnologia em Desenvolvimento de Sistemas.
