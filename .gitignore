@@ -11,5 +11,3 @@ __pycache__/
 
 # Documentation files not needed 
 docs/VIDEO_GUIDE.md
-src/html/index.html
-src/html/Sistema_de_Cadastro_de_Clientes.html
