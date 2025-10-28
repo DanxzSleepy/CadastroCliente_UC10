@@ -4,7 +4,15 @@
 ### Adicionado
 - Preparação para deploy no GitHub Pages
 - Criação de workflow para deploy automatizado
-- Atualização da documentação para deploy
+- Adição de script PowerShell para deploy manual
+- Configuração do GitHub Actions para deploy automático
+- Arquivo CNAME para configuração de domínio
+- Script para verificação do status do deploy
+- Atualização da documentação com instruções de acesso online
+
+### Modificado
+- Atualização do README.md com instruções de acesso e deploy
+- Atualização dos badges de versão no README.md
 
 ## [2.5.5] - 2025-10-27
 ### Modificado
