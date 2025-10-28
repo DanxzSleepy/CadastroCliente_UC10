@@ -21,4 +21,4 @@ git push origin master
 git push origin $version
 
 Write-Host "Deploy concluído com sucesso! Versão $version publicada." -ForegroundColor Green
-Write-Host "Acesse: https://danxzsleepy.github.io/UC10_TDS_Sistema_de_Cadastro_de_Clientes/" -ForegroundColor Yellow
+Write-Host "Acesse: https://danxzsleepy.github.io/CadastroCliente_UC10/" -ForegroundColor Yellow
