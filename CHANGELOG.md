@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [2.5.7] - 2025-10-28
+### Corrigido
+- Correção da estrutura de arquivos para GitHub Pages
+- Remoção de arquivos HTML duplicados
+- Padronização para uso de único arquivo index.html na raiz
+
 ## [2.5.6] - 2025-10-28
 ### Adicionado
 - Preparação para deploy no GitHub Pages

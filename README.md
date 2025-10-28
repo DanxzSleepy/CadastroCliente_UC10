@@ -1,6 +1,6 @@
 # Sistema de Cadastro de Clientes
 
-![Version](https://img.shields.io/badge/version-2.5.6-blue)
+![Version](https://img.shields.io/badge/version-2.5.7-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-ativo-brightgreen)
 ![Theme](https://img.shields.io/badge/theme-AvoidNess-purple)
