@@ -1,6 +1,6 @@
 # Sistema de Cadastro de Clientes
 
-![Version](https://img.shields.io/badge/version-2.5.5-blue)
+![Version](https://img.shields.io/badge/version-2.5.6-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-ativo-brightgreen)
 ![Theme](https://img.shields.io/badge/theme-AvoidNess-purple)
@@ -40,6 +40,29 @@ O sistema agora inclui modos de tema claro e escuro, inspirados no estilo AvoidN
 2. Abra o arquivo `src/html/avoidness-client-system.html` em qualquer navegador web moderno
 3. O sistema está pronto para uso
 4. Utilize o botão no canto superior direito para alternar entre os modos claro e escuro
+
+## Deploy no GitHub Pages
+O projeto está configurado para deploy automático no GitHub Pages através do GitHub Actions.
+
+Para fazer deploy manualmente:
+1. Execute o script `deploy.ps1` no PowerShell:
+   ```powershell
+   .\deploy.ps1
+   ```
+
+Ou siga os passos manualmente:
+1. Certifique-se de que todas as alterações estão commitadas
+2. Crie uma tag para a versão:
+   ```bash
+   git tag -a v2.5.6 -m "Release v2.5.6"
+   ```
+3. Envie as alterações e tags:
+   ```bash
+   git push origin master
+   git push origin v2.5.6
+   ```
+
+Após o deploy, o site estará disponível em: https://danxzsleepy.github.io/UC10_TDS_Sistema_de_Cadastro_de_Clientes/
 
 ## Como Testar
 1. Preencha todos os campos obrigatórios do formulário

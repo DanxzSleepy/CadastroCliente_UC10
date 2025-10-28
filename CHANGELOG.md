@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [2.5.6] - 2025-10-28
+### Adicionado
+- Preparação para deploy no GitHub Pages
+- Criação de workflow para deploy automatizado
+- Atualização da documentação para deploy
+
 ## [2.5.5] - 2025-10-27
 ### Modificado
 - Otimização do sistema de temas claro/escuro para melhor performance
