@@ -11,3 +11,10 @@ __pycache__/
 
 # Documentation files not needed 
 docs/VIDEO_GUIDE.md
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
