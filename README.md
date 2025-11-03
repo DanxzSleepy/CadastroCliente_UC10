@@ -4,6 +4,8 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-ativo-brightgreen)
 ![Theme](https://img.shields.io/badge/theme-AvoidNess-purple)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/danxzsleepy/UC10_TDS_Sistema_de_Cadastro_de_Clientes)
+![GitHub](https://img.shields.io/github/license/danxzsleepy/UC10_TDS_Sistema_de_Cadastro_de_Clientes)
 
 ## Descrição
 Este é um sistema completo de cadastro de clientes desenvolvido com HTML, CSS e JavaScript puro. O sistema permite registrar informações básicas de clientes, como nome, e-mail, CPF, telefone, país, cidade e status, com funcionalidades avançadas de busca, filtragem e exportação.
