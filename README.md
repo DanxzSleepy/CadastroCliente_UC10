@@ -42,6 +42,10 @@ O sistema agora inclui modos de tema claro e escuro, inspirados no estilo AvoidN
 2. Abra o arquivo `index.html` em qualquer navegador web moderno
 3. O sistema está pronto para uso
 
+## Acesso Online
+O sistema está disponível online através do GitHub Pages:
+[https://danxzsleepy.github.io/CadastroCliente_UC10/](https://danxzsleepy.github.io/CadastroCliente_UC10/)
+
 ## Deploy no GitHub Pages
 O projeto está configurado para deploy automático no GitHub Pages através do GitHub Actions.
 
